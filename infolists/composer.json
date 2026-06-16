@@ -1,0 +1,39 @@
+{
+    "name": "wellcms/infolists",
+    "description": "Easily add beautiful read-only infolists to any Livewire component.",
+    "license": "MIT",
+    "homepage": "https://github.com/wellcmsphp/wellcms",
+    "support": {
+        "issues": "https://github.com/wellcmsphp/wellcms/issues",
+        "source": "https://github.com/wellcmsphp/wellcms"
+    },
+    "require": {
+        "php": "^8.1",
+        "wellcms/actions": "self.version",
+        "wellcms/support": "self.version",
+        "illuminate/console": "^10.45|^11.0|^12.0",
+        "illuminate/contracts": "^10.45|^11.0|^12.0",
+        "illuminate/database": "^10.45|^11.0|^12.0",
+        "illuminate/filesystem": "^10.45|^11.0|^12.0",
+        "illuminate/support": "^10.45|^11.0|^12.0",
+        "illuminate/view": "^10.45|^11.0|^12.0",
+        "spatie/laravel-package-tools": "^1.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "WellCMS\\Infolists\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WellCMS\\Infolists\\InfolistsServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

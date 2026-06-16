@@ -1,0 +1,9 @@
+<x-wellcms-actions::group
+    :badge="$getBadge()"
+    :badge-color="$getBadgeColor()"
+    dynamic-component="wellcms::icon-button"
+    :group="$group"
+    :label="$getLabel()"
+    :size="$getSize()"
+    class="fi-ac-icon-btn-group"
+/>

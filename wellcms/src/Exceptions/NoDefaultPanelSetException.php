@@ -1,0 +1,19 @@
+<?php
+
+namespace WellCMS\Exceptions;
+
+use Exception;
+use Throwable;
+
+class NoDefaultPanelSetException extends Exception
+{
+    final public function __construct(string $message = '', int $code = 0, ?Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
+
+    public static function make(): static
+    {
+        return new static('No default WellCMS panel is set. You may do this with the `default()` method inside a WellCMS provider\'s `panel()` configuration.');
+    }
+}

@@ -1,0 +1,36 @@
+<?php
+
+namespace WellCMS\Forms\Components\Actions;
+
+use WellCMS\Forms\Components\Component;
+
+class ActionContainer extends Component
+{
+    protected string $view = 'wellcms-forms::components.actions.action-container';
+
+    protected Action $action;
+
+    final public function __construct(Action $action)
+    {
+        $this->action = $action;
+        $this->registerActions([$action]);
+    }
+
+    public static function make(Action $action): static
+    {
+        $static = app(static::class, ['action' => $action]);
+        $static->configure();
+
+        return $static;
+    }
+
+    public function getKey(): string
+    {
+        return parent::getKey() ?? "{$this->getStatePath()}.{$this->action->getName()}Action";
+    }
+
+    public function isHidden(): bool
+    {
+        return $this->action->isHidden();
+    }
+}

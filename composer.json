@@ -1,0 +1,62 @@
+{
+    "name": "wellcms/wellcms",
+    "description": "WellCMS core package - Filament-like admin panel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ruslan Russell",
+            "email": "irussellua@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^11.0|^12.0",
+        "livewire/livewire": "^3.0",
+        "anourvalar/eloquent-serialize": "^1.2",
+        "blade-ui-kit/blade-heroicons": "^2.5",
+        "danharrin/date-format-converter": "^0.3",
+        "danharrin/livewire-rate-limiting": "^0.3|^1.0|^2.0",
+        "doctrine/dbal": "^3.2|^4.0",
+        "kirschbaum-development/eloquent-power-joins": "^3.0|^4.0",
+        "league/csv": "^9.16",
+        "openspout/openspout": "^4.23",
+        "ryangjchandler/blade-capture-directive": "^0.2|^0.3|^1.0",
+        "spatie/color": "^1.5",
+        "spatie/invade": "^1.0|^2.0",
+        "spatie/laravel-package-tools": "^1.9",
+        "symfony/html-sanitizer": "^6.1|^7.0"
+    },
+    "autoload": {
+        "files": [
+            "support/src/helpers.php",
+            "forms/src/helpers.php",
+            "wellcms/src/helpers.php",
+            "wellcms/src/global_helpers.php"
+        ],
+        "psr-4": {
+            "WellCMS\\Widgets\\": "widgets/src",
+            "WellCMS\\Tables\\": "tables/src",
+            "WellCMS\\Support\\": "support/src",
+            "WellCMS\\Notifications\\": "notifications/src",
+            "WellCMS\\Infolists\\": "infolists/src",
+            "WellCMS\\Forms\\": "forms/src",
+            "WellCMS\\Actions\\": "actions/src",
+            "WellCMS\\": "wellcms/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WellCMS\\WellCMSServiceProvider",
+                "WellCMS\\Support\\SupportServiceProvider",
+                "WellCMS\\Forms\\FormsServiceProvider",
+                "WellCMS\\Tables\\TablesServiceProvider",
+                "WellCMS\\Widgets\\WidgetsServiceProvider",
+                "WellCMS\\Notifications\\NotificationsServiceProvider",
+                "WellCMS\\Infolists\\InfolistsServiceProvider",
+                "WellCMS\\Actions\\ActionsServiceProvider"
+            ]
+        }
+    }
+}

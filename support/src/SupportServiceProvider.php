@@ -1,0 +1,204 @@
+<?php
+
+namespace WellCMS\Support;
+
+use Composer\InstalledVersions;
+use WellCMS\Commands\CacheComponentsCommand;
+use WellCMS\Support\Assets\AssetManager;
+use WellCMS\Support\Assets\Css;
+use WellCMS\Support\Assets\Js;
+use WellCMS\Support\Colors\ColorManager;
+use WellCMS\Support\Commands\AboutCommand as WellCMSAboutCommand;
+use WellCMS\Support\Commands\Aliases\MakeIssueCommand as MakeIssueCommandAlias;
+use WellCMS\Support\Commands\AssetsCommand;
+use WellCMS\Support\Commands\CheckTranslationsCommand;
+use WellCMS\Support\Commands\InstallCommand;
+use WellCMS\Support\Commands\MakeIssueCommand;
+use WellCMS\Support\Commands\OptimizeClearCommand;
+use WellCMS\Support\Commands\OptimizeCommand;
+use WellCMS\Support\Commands\UpgradeCommand;
+use WellCMS\Support\Components\ComponentManager;
+use WellCMS\Support\Components\Contracts\ScopedComponentManager;
+use WellCMS\Support\Facades\WellCMSAsset;
+use WellCMS\Support\Icons\IconManager;
+use WellCMS\Support\View\ViewManager;
+use Illuminate\Foundation\Console\AboutCommand;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
+use Illuminate\Support\Stringable;
+use Laravel\Octane\Events\RequestReceived;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
+use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
+use Symfony\Component\HtmlSanitizer\HtmlSanitizerInterface;
+
+class SupportServiceProvider extends PackageServiceProvider
+{
+    public function configurePackage(Package $package): void
+    {
+        $package
+            ->name('wellcms')
+            ->hasCommands([
+                AssetsCommand::class,
+                CheckTranslationsCommand::class,
+                WellCMSAboutCommand::class,
+                InstallCommand::class,
+                MakeIssueCommand::class,
+                MakeIssueCommandAlias::class,
+                OptimizeClearCommand::class,
+                OptimizeCommand::class,
+                UpgradeCommand::class,
+            ])
+            ->hasConfigFile()
+            ->hasTranslations()
+            ->hasViews();
+    }
+
+    public function packageBooted(): void
+    {
+        WellCMSAsset::register([
+            Css::make('support', __DIR__ . '/../dist/index.css'),
+            Js::make('support', __DIR__ . '/../dist/index.js'),
+        ], 'wellcms/support');
+
+        Blade::directive('captureSlots', function (string $expression): string {
+            return "<?php \$slotContents = get_defined_vars(); \$slots = collect({$expression})->mapWithKeys(fn (string \$slot): array => [\$slot => \$slotContents[\$slot] ?? null])->all(); unset(\$slotContents) ?>";
+        });
+
+        Blade::directive('wellcmsScripts', function (string $expression): string {
+            return "<?php echo \WellCMS\Support\Facades\WellCMSAsset::renderScripts({$expression}) ?>";
+        });
+
+        Blade::directive('wellcmsStyles', function (string $expression): string {
+            return "<?php echo \WellCMS\Support\Facades\WellCMSAsset::renderStyles({$expression}) ?>";
+        });
+
+        Blade::extend(function ($view) {
+            return preg_replace('/\s*@trim\s*/m', '', $view);
+        });
+
+        Str::macro('sanitizeHtml', function (string $html): string {
+            return app(HtmlSanitizerInterface::class)->sanitize($html);
+        });
+
+        Stringable::macro('sanitizeHtml', function (): Stringable {
+            /** @phpstan-ignore-next-line */
+            return new Stringable(Str::sanitizeHtml($this->value));
+        });
+
+        Str::macro('ucwords', function (string $value): string {
+            return implode(' ', array_map(
+                [Str::class, 'ucfirst'],
+                explode(' ', $value),
+            ));
+        });
+
+        Stringable::macro('ucwords', function (): Stringable {
+            /** @phpstan-ignore-next-line */
+            return new Stringable(Str::ucwords($this->value));
+        });
+
+        if (class_exists(InstalledVersions::class)) {
+            $packages = [
+                'wellcms',
+                'forms',
+                'notifications',
+                'support',
+                'tables',
+            ];
+
+            AboutCommand::add('WellCMS', static fn () => [
+                'Version' => 'v3.3.54',
+                'Packages' => collect($packages)
+                    ->filter(fn (string $package): bool => InstalledVersions::isInstalled("filament/{$package}"))
+                    ->join(', '),
+                'Views' => function () use ($packages): string {
+                    $publishedViewPaths = collect($packages)
+                        ->filter(fn (string $package): bool => is_dir(resource_path("views/vendor/{$package}")));
+
+                    if (! $publishedViewPaths->count()) {
+                        return '<fg=green;options=bold>NOT PUBLISHED</>';
+                    }
+
+                    return "<fg=red;options=bold>PUBLISHED:</> {$publishedViewPaths->join(', ')}";
+                },
+                'Blade Icons' => function (): string {
+                    return File::exists(app()->bootstrapPath('cache/blade-icons.php'))
+                        ? '<fg=green;options=bold>CACHED</>'
+                        : '<fg=yellow;options=bold>NOT CACHED</>';
+                },
+                'Panel Components' => function (): string {
+                    if (! class_exists(CacheComponentsCommand::class)) {
+                        return '<options=bold>NOT AVAILABLE</>';
+                    }
+
+                    $path = app()->bootstrapPath('cache/wellcms/panels');
+
+                    return File::isDirectory($path) && ! File::isEmptyDirectory($path)
+                        ? '<fg=green;options=bold>CACHED</>'
+                        : '<fg=yellow;options=bold>NOT CACHED</>';
+                },
+            ]);
+        }
+
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                $this->package->basePath('/../config/wellcms.php') => config_path('wellcms.php'),
+            ], 'wellcms-config');
+
+            if (method_exists($this, 'optimizes')) {
+                $this->optimizes(
+                    optimize: 'wellcms:optimize', /** @phpstan-ignore-line */
+                    clear: 'wellcms:optimize-clear', /** @phpstan-ignore-line */
+                    key: 'wellcms', /** @phpstan-ignore-line */
+                );
+            }
+        }
+    }
+
+    public function packageRegistered(): void
+    {
+        $this->app->scoped(
+            AssetManager::class,
+            fn () => new AssetManager,
+        );
+
+        $this->app->scoped(
+            ScopedComponentManager::class,
+            fn () => $this->app->make(ComponentManager::class)->clone(),
+        );
+        $this->app->booted(fn () => ComponentManager::resolveScoped());
+        class_exists(RequestReceived::class) && Event::listen(RequestReceived::class, fn () => ComponentManager::resolveScoped());
+
+        $this->app->scoped(
+            ColorManager::class,
+            fn () => new ColorManager,
+        );
+
+        $this->app->scoped(
+            IconManager::class,
+            fn () => new IconManager,
+        );
+
+        $this->app->scoped(
+            ViewManager::class,
+            fn () => new ViewManager,
+        );
+
+        $this->app->scoped(
+            HtmlSanitizerInterface::class,
+            fn (): HtmlSanitizer => new HtmlSanitizer(
+                (new HtmlSanitizerConfig)
+                    ->allowSafeElements()
+                    ->allowRelativeLinks()
+                    ->allowRelativeMedias()
+                    ->allowAttribute('class', allowedElements: '*')
+                    ->allowAttribute('style', allowedElements: '*')
+                    ->withMaxInputLength(500000),
+            ),
+        );
+    }
+}

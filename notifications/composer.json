@@ -1,0 +1,40 @@
+{
+    "name": "wellcms/notifications",
+    "description": "Easily add beautiful notifications to any Livewire app.",
+    "license": "MIT",
+    "homepage": "https://github.com/wellcmsphp/wellcms",
+    "support": {
+        "issues": "https://github.com/wellcmsphp/wellcms/issues",
+        "source": "https://github.com/wellcmsphp/wellcms"
+    },
+    "require": {
+        "php": "^8.1",
+        "wellcms/actions": "self.version",
+        "wellcms/support": "self.version",
+        "illuminate/contracts": "^10.45|^11.0|^12.0",
+        "illuminate/filesystem": "^10.45|^11.0|^12.0",
+        "illuminate/notifications": "^10.45|^11.0|^12.0",
+        "illuminate/support": "^10.45|^11.0|^12.0",
+        "spatie/laravel-package-tools": "^1.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "WellCMS\\Notifications\\": "src"
+        },
+        "files": [
+            "src/Testing/Autoload.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WellCMS\\Notifications\\NotificationsServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

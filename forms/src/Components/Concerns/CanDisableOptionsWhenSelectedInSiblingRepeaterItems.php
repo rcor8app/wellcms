@@ -1,0 +1,45 @@
+<?php
+
+namespace WellCMS\Forms\Components\Concerns;
+
+use BackedEnum;
+use WellCMS\Forms\Components\Component;
+use WellCMS\Forms\Components\Contracts\CanDisableOptions;
+use Illuminate\Support\Arr;
+
+trait CanDisableOptionsWhenSelectedInSiblingRepeaterItems
+{
+    public function disableOptionsWhenSelectedInSiblingRepeaterItems(): static
+    {
+        $this->distinct();
+        $this->live();
+
+        $this->disableOptionWhen(static function (Component & CanDisableOptions $component, string $value, mixed $state) {
+            $repeater = $component->getParentRepeater();
+
+            if (! $repeater) {
+                return false;
+            }
+
+            return collect($repeater->getState())
+                ->pluck(
+                    (string) str($component->getStatePath())
+                        ->after("{$repeater->getStatePath()}.")
+                        ->after('.'),
+                )
+                ->flatten()
+                ->map(function (mixed $siblingItemState): mixed {
+                    if ($siblingItemState instanceof BackedEnum) {
+                        return $siblingItemState->value;
+                    }
+
+                    return $siblingItemState;
+                })
+                ->diff(Arr::wrap(($state instanceof BackedEnum) ? $state->value : $state))
+                ->filter(fn (mixed $siblingItemState): bool => filled($siblingItemState))
+                ->contains($value);
+        });
+
+        return $this;
+    }
+}

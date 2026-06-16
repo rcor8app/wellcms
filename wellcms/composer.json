@@ -1,0 +1,53 @@
+{
+    "name": "wellcms/wellcms",
+    "description": "A collection of full-stack components for accelerated Laravel app development.",
+    "license": "MIT",
+    "homepage": "https://github.com/wellcmsphp/wellcms",
+    "support": {
+        "issues": "https://github.com/wellcmsphp/wellcms/issues",
+        "source": "https://github.com/wellcmsphp/wellcms"
+    },
+    "require": {
+        "php": "^8.1",
+        "danharrin/livewire-rate-limiting": "^0.3|^1.0|^2.0",
+        "wellcms/actions": "self.version",
+        "wellcms/forms": "self.version",
+        "wellcms/infolists": "self.version",
+        "wellcms/notifications": "self.version",
+        "wellcms/support": "self.version",
+        "wellcms/tables": "self.version",
+        "wellcms/widgets": "self.version",
+        "illuminate/auth": "^10.45|^11.0|^12.0",
+        "illuminate/console": "^10.45|^11.0|^12.0",
+        "illuminate/contracts": "^10.45|^11.0|^12.0",
+        "illuminate/cookie": "^10.45|^11.0|^12.0",
+        "illuminate/database": "^10.45|^11.0|^12.0",
+        "illuminate/http": "^10.45|^11.0|^12.0",
+        "illuminate/routing": "^10.45|^11.0|^12.0",
+        "illuminate/session": "^10.45|^11.0|^12.0",
+        "illuminate/support": "^10.45|^11.0|^12.0",
+        "illuminate/view": "^10.45|^11.0|^12.0",
+        "spatie/laravel-package-tools": "^1.9"
+    },
+    "autoload": {
+        "files": [
+            "src/global_helpers.php",
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "WellCMS\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WellCMS\\WellCMSServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

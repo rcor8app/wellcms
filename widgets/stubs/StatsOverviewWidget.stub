@@ -1,0 +1,16 @@
+<?php
+
+namespace {{ namespace }};
+
+use WellCMS\Widgets\StatsOverviewWidget as BaseWidget;
+use WellCMS\Widgets\StatsOverviewWidget\Stat;
+
+class {{ class }} extends BaseWidget
+{
+    protected function getStats(): array
+    {
+        return [
+            //
+        ];
+    }
+}

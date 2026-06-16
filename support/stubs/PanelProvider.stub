@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Providers\WellCMS;
+
+use WellCMS\Http\Middleware\Authenticate;
+use WellCMS\Http\Middleware\AuthenticateSession;
+use WellCMS\Http\Middleware\DisableBladeIconComponents;
+use WellCMS\Http\Middleware\DispatchServingWellCMSEvent;
+use WellCMS\Pages;
+use WellCMS\Panel;
+use WellCMS\PanelProvider;
+use WellCMS\Support\Colors\Color;
+use WellCMS\Widgets;
+use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Illuminate\Cookie\Middleware\EncryptCookies;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Routing\Middleware\SubstituteBindings;
+use Illuminate\Session\Middleware\StartSession;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
+
+class {{ class }} extends PanelProvider
+{
+    public function panel(Panel $panel): Panel
+    {
+        return $panel
+            ->id('{{ id }}')
+            ->path('{{ id }}')
+            ->colors([
+                'primary' => Color::Amber,
+            ])
+            ->discoverResources(in: app_path('WellCMS/{{ directory }}/Resources'), for: 'App\\WellCMS\\{{ directory }}\\Resources')
+            ->discoverPages(in: app_path('WellCMS/{{ directory }}/Pages'), for: 'App\\WellCMS\\{{ directory }}\\Pages')
+            ->pages([
+                Pages\Dashboard::class,
+            ])
+            ->discoverWidgets(in: app_path('WellCMS/{{ directory }}/Widgets'), for: 'App\\WellCMS\\{{ directory }}\\Widgets')
+            ->widgets([
+                Widgets\AccountWidget::class,
+                Widgets\WellCMSInfoWidget::class,
+            ])
+            ->middleware([
+                EncryptCookies::class,
+                AddQueuedCookiesToResponse::class,
+                StartSession::class,
+                AuthenticateSession::class,
+                ShareErrorsFromSession::class,
+                VerifyCsrfToken::class,
+                SubstituteBindings::class,
+                DisableBladeIconComponents::class,
+                DispatchServingWellCMSEvent::class,
+            ])
+            ->authMiddleware([
+                Authenticate::class,
+            ]);
+    }
+}

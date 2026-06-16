@@ -1,0 +1,10 @@
+import preset from '../../../../vendor/wellcms/wellcms/tailwind.config.preset'
+
+export default {
+    presets: [preset],
+    content: [
+        './app/WellCMS/{{ classPathPrefix }}**/*.php',
+        './resources/views/wellcms/{{ viewPathPrefix }}**/*.blade.php',
+        './vendor/wellcms/**/*.blade.php',
+    ],
+}

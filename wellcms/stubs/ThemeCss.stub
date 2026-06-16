@@ -1,0 +1,3 @@
+@import '../../../../vendor/wellcms/wellcms/resources/css/theme.css';
+
+@config 'tailwind.config.js';

@@ -1,0 +1,32 @@
+{
+    "name": "wellcms/widgets",
+    "description": "Easily add beautiful dashboard widgets to any Livewire component.",
+    "license": "MIT",
+    "homepage": "https://github.com/wellcmsphp/wellcms",
+    "support": {
+        "issues": "https://github.com/wellcmsphp/wellcms/issues",
+        "source": "https://github.com/wellcmsphp/wellcms"
+    },
+    "require": {
+        "php": "^8.1",
+        "wellcms/support": "self.version",
+        "spatie/laravel-package-tools": "^1.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "WellCMS\\Widgets\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WellCMS\\Widgets\\WidgetsServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
