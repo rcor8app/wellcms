@@ -1,7 +1,7 @@
-<x-wellcms-panels::page>
+<x-wellcms::page>
     <div class="space-y-6">
         <div class="flex items-center justify-between">
-            <x-wellcms-panels::header
+            <x-wellcms::header
                 title="Керування модулями"
                 description="Увімкніть, вимкніть, створіть або видаліть модулі системи для зміни доступного функціоналу."
             />
@@ -99,4 +99,4 @@
             </div>
         @endif
     </div>
-</x-wellcms-panels::page>
+</x-wellcms::page>
