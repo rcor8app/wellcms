@@ -61,13 +61,13 @@
         x-on:expand="isCollapsed = false"
         x-on:open-section.window="if ($event.detail.id == $el.id) isCollapsed = false"
         x-on:toggle-section.window="if ($event.detail.id == $el.id) isCollapsed = ! isCollapsed"
-        x-bind:class="isCollapsed && 'fi-collapsed'"
+        x-bind:class="isCollapsed && 're-collapsed'"
     @endif
     {{
         $attributes->class([
-            'fi-section',
+            're-section',
             match ($aside) {
-                true => 'fi-aside grid grid-cols-1 items-start gap-x-6 gap-y-4 md:grid-cols-3',
+                true => 're-aside grid grid-cols-1 items-start gap-x-6 gap-y-4 md:grid-cols-3',
                 false => 'rounded-xl bg-white shadow-sm ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10',
             },
         ])
@@ -79,7 +79,7 @@
                 x-on:click="isCollapsed = ! isCollapsed"
             @endif
             @class([
-                'fi-section-header flex flex-col gap-3',
+                're-section-header flex flex-col gap-3',
                 'cursor-pointer' => $collapsible,
                 match ($compact) {
                     true => 'px-4 py-2.5',
@@ -92,12 +92,12 @@
                     <x-wellcms::icon
                         :icon="$icon"
                         @class([
-                            'fi-section-header-icon self-start',
+                            're-section-header-icon self-start',
                             match ($iconColor) {
                                 'gray' => 'text-gray-400 dark:text-gray-500',
-                                default => 'fi-color-custom text-custom-500 dark:text-custom-400',
+                                default => 're-color-custom text-custom-500 dark:text-custom-400',
                             },
-                            is_string($iconColor) ? "fi-color-{$iconColor}" : null,
+                            is_string($iconColor) ? "re-color-{$iconColor}" : null,
                             match ($iconSize) {
                                 IconSize::Small, 'sm' => 'h-4 w-4 mt-1',
                                 IconSize::Medium, 'md' => 'h-5 w-5 mt-0.5',
@@ -177,7 +177,7 @@
             }"
         @endif
         @class([
-            'fi-section-content-ctn',
+            're-section-content-ctn',
             'border-t border-gray-200 dark:border-white/10' => $hasHeader && (! $aside),
             'rounded-xl bg-white shadow-sm ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10 md:col-span-2' => $aside,
             'md:order-first' => $contentBefore,
@@ -185,7 +185,7 @@
     >
         <div
             @class([
-                'fi-section-content',
+                're-section-content',
                 match ($compact) {
                     true => 'p-4',
                     false => 'p-6',
@@ -198,7 +198,7 @@
         @if ($hasFooterActions)
             <footer
                 @class([
-                    'fi-section-footer border-t border-gray-200 dark:border-white/10',
+                    're-section-footer border-t border-gray-200 dark:border-white/10',
                     'px-6 py-4' => ! $compact,
                     'px-4 py-2.5' => $compact,
                 ])

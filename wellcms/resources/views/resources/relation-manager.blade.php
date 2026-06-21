@@ -1,4 +1,4 @@
-<div class="fi-resource-relation-manager flex flex-col gap-y-6">
+<div class="re-resource-relation-manager flex flex-col gap-y-6">
     <x-wellcms-panels::resources.tabs />
 
     {{ \WellCMS\Support\Facades\WellCMSView::renderHook(\WellCMS\View\PanelsRenderHook::RESOURCE_RELATION_MANAGER_BEFORE, scopes: $this->getRenderHookScopes()) }}

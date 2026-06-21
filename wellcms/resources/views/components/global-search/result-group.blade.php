@@ -4,7 +4,7 @@
 ])
 
 <li
-    {{ $attributes->class(['fi-global-search-result-group']) }}
+    {{ $attributes->class(['re-global-search-result-group']) }}
 >
     <div
         class="sticky top-0 z-10 border-b border-gray-200 bg-gray-50 dark:border-white/10 dark:bg-gray-900"

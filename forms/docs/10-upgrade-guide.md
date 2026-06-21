@@ -45,7 +45,7 @@ rm config/forms.php
 
 #### `FORMS_FILESYSTEM_DRIVER` .env variable
 
-The `FORMS_FILESYSTEM_DRIVER` .env variable has been renamed to `FILAMENT_FILESYSTEM_DISK`. This is to make it more consistent with Laravel, as Laravel v9 introduced this change as well. Please ensure that you update your .env files accordingly, and don't forget production!
+The `FORMS_FILESYSTEM_DRIVER` .env variable has been renamed to `WELLCMS_FILESYSTEM_DISK`. This is to make it more consistent with Laravel, as Laravel v9 introduced this change as well. Please ensure that you update your .env files accordingly, and don't forget production!
 
 #### New `@wellcmsScripts` and `@wellcmsStyles` Blade directives
 

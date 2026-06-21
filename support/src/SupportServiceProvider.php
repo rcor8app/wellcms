@@ -113,7 +113,7 @@ class SupportServiceProvider extends PackageServiceProvider
             AboutCommand::add('WellCMS', static fn () => [
                 'Version' => 'v3.3.54',
                 'Packages' => collect($packages)
-                    ->filter(fn (string $package): bool => InstalledVersions::isInstalled("filament/{$package}"))
+                    ->filter(fn (string $package): bool => InstalledVersions::isInstalled("wellcms/{$package}"))
                     ->join(', '),
                 'Views' => function () use ($packages): string {
                     $publishedViewPaths = collect($packages)

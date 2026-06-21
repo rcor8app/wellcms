@@ -11,7 +11,7 @@
     $dataChecksum = $generateDataChecksum();
 
     $descriptionIconClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-wi-stats-overview-stat-description-icon h-5 w-5',
+        're-wi-stats-overview-stat-description-icon h-5 w-5',
         match ($descriptionColor) {
             'gray' => 'text-gray-400 dark:text-gray-500',
             default => 'text-custom-500',
@@ -34,7 +34,7 @@
     {{
         $getExtraAttributeBag()
             ->class([
-                'fi-wi-stats-overview-stat relative rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10',
+                're-wi-stats-overview-stat relative rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10',
             ])
     }}
 >
@@ -43,19 +43,19 @@
             @if ($icon = $getIcon())
                 <x-wellcms::icon
                     :icon="$icon"
-                    class="fi-wi-stats-overview-stat-icon h-5 w-5 text-gray-400 dark:text-gray-500"
+                    class="re-wi-stats-overview-stat-icon h-5 w-5 text-gray-400 dark:text-gray-500"
                 />
             @endif
 
             <span
-                class="fi-wi-stats-overview-stat-label text-sm font-medium text-gray-500 dark:text-gray-400"
+                class="re-wi-stats-overview-stat-label text-sm font-medium text-gray-500 dark:text-gray-400"
             >
                 {{ $getLabel() }}
             </span>
         </div>
 
         <div
-            class="fi-wi-stats-overview-stat-value text-3xl font-semibold tracking-tight text-gray-950 dark:text-white"
+            class="re-wi-stats-overview-stat-value text-3xl font-semibold tracking-tight text-gray-950 dark:text-white"
         >
             {{ $getValue() }}
         </div>
@@ -72,12 +72,12 @@
 
                 <span
                     @class([
-                        'fi-wi-stats-overview-stat-description text-sm',
+                        're-wi-stats-overview-stat-description text-sm',
                         match ($descriptionColor) {
                             'gray' => 'text-gray-500 dark:text-gray-400',
-                            default => 'fi-color-custom text-custom-600 dark:text-custom-400',
+                            default => 're-color-custom text-custom-600 dark:text-custom-400',
                         },
-                        is_string($descriptionColor) ? "fi-color-{$descriptionColor}" : null,
+                        is_string($descriptionColor) ? "re-color-{$descriptionColor}" : null,
                     ])
                     @style([
                         \WellCMS\Support\get_color_css_variables(
@@ -117,12 +117,12 @@
                             values: @js(array_values($chart)),
                         })"
                 @class([
-                    'fi-wi-stats-overview-stat-chart absolute inset-x-0 bottom-0 overflow-hidden rounded-b-xl',
+                    're-wi-stats-overview-stat-chart absolute inset-x-0 bottom-0 overflow-hidden rounded-b-xl',
                     match ($chartColor) {
                         'gray' => null,
-                        default => 'fi-color-custom',
+                        default => 're-color-custom',
                     },
-                    is_string($chartColor) ? "fi-color-{$chartColor}" : null,
+                    is_string($chartColor) ? "re-color-{$chartColor}" : null,
                 ])
                 @style([
                     \WellCMS\Support\get_color_css_variables(

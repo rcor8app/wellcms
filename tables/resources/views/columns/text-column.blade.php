@@ -68,7 +68,7 @@
         $attributes
             ->merge($getExtraAttributes(), escape: false)
             ->class([
-                'fi-ta-text grid w-full gap-y-1',
+                're-ta-text grid w-full gap-y-1',
                 'px-3 py-4' => ! $isInline(),
             ])
     }}
@@ -137,7 +137,7 @@
                         $weight = $getWeight($state);
 
                         $iconClasses = \Illuminate\Support\Arr::toCssClasses([
-                            'fi-ta-text-item-icon h-5 w-5',
+                            're-ta-text-item-icon h-5 w-5',
                             match ($iconColor) {
                                 'gray', null => 'text-gray-400 dark:text-gray-500',
                                 default => 'text-custom-500',
@@ -198,13 +198,13 @@
                         @else
                             <div
                                 @class([
-                                    'fi-ta-text-item inline-flex items-center gap-1.5',
+                                    're-ta-text-item inline-flex items-center gap-1.5',
                                     'group/item' => $url,
                                     match ($color) {
                                         null, 'gray' => null,
-                                        default => 'fi-color-custom',
+                                        default => 're-color-custom',
                                     },
-                                    is_string($color) ? "fi-color-{$color}" : null,
+                                    is_string($color) ? "re-color-{$color}" : null,
                                 ])
                             >
                                 @if ($icon && in_array($iconPosition, [IconPosition::Before, 'before']))
@@ -217,7 +217,7 @@
 
                                 <span
                                     @class([
-                                        'fi-ta-text-item-label',
+                                        're-ta-text-item-label',
                                         'group-hover/item:underline group-focus-visible/item:underline' => $url,
                                         'whitespace-normal' => $canWrap,
                                         'line-clamp-[--line-clamp]' => $lineClamp,

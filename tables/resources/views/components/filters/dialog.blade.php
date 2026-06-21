@@ -30,7 +30,7 @@
         :sticky-header="$triggerAction->isModalHeaderSticky()"
         :width="$width"
         wire:key="{{ $this->getId() }}.table.filters"
-        {{ $attributes->class(['fi-ta-filters-modal']) }}
+        {{ $attributes->class(['re-ta-filters-modal']) }}
     >
         <x-slot name="trigger">
             {{ $triggerAction->badge($activeFiltersCount) }}
@@ -49,7 +49,7 @@
         shift
         :width="$width"
         wire:key="{{ $this->getId() }}.table.filters"
-        {{ $attributes->class(['fi-ta-filters-dropdown']) }}
+        {{ $attributes->class(['re-ta-filters-dropdown']) }}
     >
         <x-slot name="trigger">
             {{ $triggerAction->badge($activeFiltersCount) }}

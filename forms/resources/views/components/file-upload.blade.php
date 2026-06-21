@@ -119,7 +119,7 @@
                 ->merge($getExtraAttributes(), escape: false)
                 ->merge($getExtraAlpineAttributes(), escape: false)
                 ->class([
-                    'fi-fo-file-upload flex flex-col gap-y-2 [&_.filepond--root]:font-sans',
+                    're-fo-file-upload flex flex-col gap-y-2 [&_.filepond--root]:font-sans',
                     match ($alignment) {
                         Alignment::Start, Alignment::Left => 'items-start',
                         Alignment::Center => 'items-center',
@@ -166,7 +166,7 @@
                 x-on:keydown.escape.window="closeEditor"
                 @class([
                     'fixed inset-0 isolate z-50 h-[100dvh] w-screen p-2 sm:p-10 md:p-20',
-                    'fi-fo-file-upload-circle-cropper' => $hasCircleCropper,
+                    're-fo-file-upload-circle-cropper' => $hasCircleCropper,
                 ])
             >
                 <div

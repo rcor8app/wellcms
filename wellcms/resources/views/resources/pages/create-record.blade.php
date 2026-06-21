@@ -1,7 +1,7 @@
 <x-wellcms-panels::page
     @class([
-        'fi-resource-create-record-page',
-        'fi-resource-' . str_replace('/', '-', $this->getResource()::getSlug()),
+        're-resource-create-record-page',
+        're-resource-' . str_replace('/', '-', $this->getResource()::getSlug()),
     ])
 >
     <x-wellcms-panels::form

@@ -51,21 +51,21 @@
 
     $buttonClasses = \Illuminate\Support\Arr::toCssClasses([
         ...[
-            'fi-btn relative grid-flow-col items-center justify-center font-semibold outline-none transition duration-75 focus-visible:ring-2',
+            're-btn relative grid-flow-col items-center justify-center font-semibold outline-none transition duration-75 focus-visible:ring-2',
             'pointer-events-none opacity-70' => $disabled,
             'rounded-lg' => ! $grouped,
             'flex-1 [&:nth-child(1_of_.fi-btn)]:rounded-s-lg [&:nth-last-child(1_of_.fi-btn)]:rounded-e-lg [&:not(:nth-child(1_of_.fi-btn))]:shadow-[-1px_0_0_0_theme(colors.gray.200)] [&:not(:nth-last-child(1_of_.fi-btn))]:me-px dark:[&:not(:nth-child(1_of_.fi-btn))]:shadow-[-1px_0_0_0_theme(colors.white/20%)]' => $grouped,
             'cursor-pointer' => $tag === 'label',
             match ($color) {
                 'gray' => null,
-                default => 'fi-color-custom',
+                default => 're-color-custom',
             },
             // @deprecated `fi-btn-color-*` has been replaced by `fi-color-*` and `fi-color-custom`.
-            is_string($color) ? "fi-btn-color-{$color}" : null,
-            is_string($color) ? "fi-color-{$color}" : null,
-            ($size instanceof ActionSize) ? "fi-size-{$size->value}" : null,
+            is_string($color) ? "re-btn-color-{$color}" : null,
+            is_string($color) ? "re-color-{$color}" : null,
+            ($size instanceof ActionSize) ? "re-size-{$size->value}" : null,
             // @deprecated `fi-btn-size-*` has been replaced by `fi-size-*`.
-            ($size instanceof ActionSize) ? "fi-btn-size-{$size->value}" : null,
+            ($size instanceof ActionSize) ? "re-btn-size-{$size->value}" : null,
             match ($size) {
                 ActionSize::ExtraSmall => 'gap-1 px-2 py-1.5 text-xs',
                 ActionSize::Small => 'gap-1 px-2.5 py-1.5 text-sm',
@@ -87,7 +87,7 @@
         ...(
             $outlined ?
                 [
-                    'fi-btn-outlined ring-1',
+                    're-btn-outlined ring-1',
                     match ($color) {
                         'gray' => 'text-gray-950 ring-gray-300 hover:bg-gray-400/10 focus-visible:ring-gray-400/40 dark:text-white dark:ring-gray-700',
                         default => 'text-custom-600 ring-custom-600 hover:bg-custom-400/10 dark:text-custom-400 dark:ring-custom-500',
@@ -113,7 +113,7 @@
     ]);
 
     $iconClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-btn-icon transition duration-75',
+        're-btn-icon transition duration-75',
         match ($iconSize) {
             IconSize::Small => 'h-4 w-4',
             IconSize::Medium => 'h-5 w-5',
@@ -125,10 +125,10 @@
         '[:checked+*>&]:text-white' => $tag === 'label',
     ]);
 
-    $badgeContainerClasses = 'fi-btn-badge-ctn absolute start-full top-0 z-[1] w-max -translate-x-1/2 -translate-y-1/2 rounded-md bg-white dark:bg-gray-900 rtl:translate-x-1/2';
+    $badgeContainerClasses = 're-btn-badge-ctn absolute start-full top-0 z-[1] w-max -translate-x-1/2 -translate-y-1/2 rounded-md bg-white dark:bg-gray-900 rtl:translate-x-1/2';
 
     $labelClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-btn-label',
+        're-btn-label',
         'sr-only' => $labelSrOnly,
     ]);
 

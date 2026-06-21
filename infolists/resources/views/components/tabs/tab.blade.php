@@ -3,7 +3,7 @@
     $isContained = $getContainer()->getParentComponent()->isContained();
 
     $activeTabClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-active',
+        're-active',
         'p-6' => $isContained,
         'mt-6' => ! $isContained,
     ]);
@@ -22,7 +22,7 @@
                 'tabindex' => '0',
             ], escape: false)
             ->merge($getExtraAttributes(), escape: false)
-            ->class(['fi-in-tabs-tab outline-none'])
+            ->class(['re-in-tabs-tab outline-none'])
     }}
 >
     {{ $getChildComponentContainer() }}

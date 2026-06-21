@@ -30,7 +30,7 @@
     :attributes="
         \WellCMS\Support\prepare_inherited_attributes($attributes)
             ->merge($action->getExtraAttributes(), escape: false)
-            ->class(['fi-ac-action'])
+            ->class(['re-ac-action'])
     "
 >
     {{ $slot }}

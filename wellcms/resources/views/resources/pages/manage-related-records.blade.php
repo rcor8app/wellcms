@@ -1,7 +1,7 @@
 <x-wellcms-panels::page
     @class([
-        'fi-resource-manage-related-records-page',
-        'fi-resource-' . str_replace('/', '-', $this->getResource()::getSlug()),
+        're-resource-manage-related-records-page',
+        're-resource-' . str_replace('/', '-', $this->getResource()::getSlug()),
     ])
 >
     @if ($this->table->getColumns())

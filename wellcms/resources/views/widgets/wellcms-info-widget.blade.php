@@ -1,4 +1,4 @@
-<x-wellcms-widgets::widget class="fi-wellcms-info-widget">
+<x-wellcms-widgets::widget class="re-wellcms-info-widget">
     <x-wellcms::section>
         <div class="flex items-center gap-x-3">
             <div class="flex-1">

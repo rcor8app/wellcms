@@ -31,7 +31,7 @@
         :valid="! $errors->has($statePath)"
         :attributes="
             \WellCMS\Support\prepare_inherited_attributes($getExtraAttributeBag())
-                ->class(['fi-fo-textarea overflow-hidden'])
+                ->class(['re-fo-textarea overflow-hidden'])
         "
     >
         <div wire:ignore.self style="height: '{{ $initialHeight . 'rem' }}'">

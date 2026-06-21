@@ -34,7 +34,7 @@
         :valid="! $errors->has($statePath)"
         :attributes="
             \WellCMS\Support\prepare_inherited_attributes($getExtraAttributeBag())
-                ->class(['fi-fo-select'])
+                ->class(['re-fo-select'])
         "
     >
         @if ((! ($isSearchable() || $isMultiple()) && $isNative()))

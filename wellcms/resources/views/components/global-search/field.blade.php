@@ -6,7 +6,7 @@
 
 <div
     x-id="['input']"
-    {{ $attributes->class(['fi-global-search-field']) }}
+    {{ $attributes->class(['re-global-search-field']) }}
 >
     <label x-bind:for="$id('input')" class="sr-only">
         {{ __('wellcms-panels::global-search.field.label') }}

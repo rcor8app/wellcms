@@ -3,7 +3,7 @@
     'form',
 ])
 
-<div {{ $attributes->class(['fi-ta-filters grid gap-y-4']) }}>
+<div {{ $attributes->class(['re-ta-filters grid gap-y-4']) }}>
     <div class="flex items-center justify-between">
         <h4
             class="text-base font-semibold leading-6 text-gray-950 dark:text-white"

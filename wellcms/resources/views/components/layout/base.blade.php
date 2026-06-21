@@ -107,8 +107,8 @@
         {{ $attributes
                 ->merge(($livewire ?? null)?->getExtraBodyAttributes() ?? [], escape: false)
                 ->class([
-                    'fi-body',
-                    'fi-panel-' . wellcms()->getId(),
+                    're-body',
+                    're-panel-' . wellcms()->getId(),
                     'min-h-screen bg-gray-50 font-normal text-gray-950 antialiased dark:bg-gray-950 dark:text-white',
                 ]) }}
     >

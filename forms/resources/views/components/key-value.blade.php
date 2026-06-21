@@ -29,7 +29,7 @@
         :valid="! $errors->has($statePath)"
         :attributes="
             \WellCMS\Support\prepare_inherited_attributes($getExtraAttributeBag())
-                ->class(['fi-fo-key-value'])
+                ->class(['re-fo-key-value'])
         "
     >
         <div

@@ -56,7 +56,7 @@
     {{
         $attributes
             ->merge($entry?->getExtraEntryWrapperAttributes() ?? [])
-            ->class(['fi-in-entry-wrp'])
+            ->class(['re-in-entry-wrp'])
     }}
 >
     @if ($label && $labelSrOnly)

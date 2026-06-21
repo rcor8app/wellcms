@@ -77,8 +77,7 @@ abstract class Asset
         }
 
         try {
-            $realPackage = str_replace('wellcms', 'filament', $package);
-            return InstalledVersions::getVersion($realPackage);
+            return InstalledVersions::getVersion($package);
         } catch (Throwable $exception) {
             return 'v3.3.54';
         }

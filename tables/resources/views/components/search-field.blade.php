@@ -15,7 +15,7 @@
 
 <div
     x-id="['input']"
-    {{ $attributes->class(['fi-ta-search-field']) }}
+    {{ $attributes->class(['re-ta-search-field']) }}
 >
     <label x-bind:for="$id('input')" class="sr-only">
         {{ __('wellcms-tables::table.fields.search.label') }}

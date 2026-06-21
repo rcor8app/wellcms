@@ -10,17 +10,17 @@
 ])
 
 <div
-    {{ $attributes->class(['fi-ta-empty-state px-6 py-12']) }}
+    {{ $attributes->class(['re-ta-empty-state px-6 py-12']) }}
 >
     <div
-        class="fi-ta-empty-state-content mx-auto grid max-w-lg justify-items-center text-center"
+        class="re-ta-empty-state-content mx-auto grid max-w-lg justify-items-center text-center"
     >
         <div
-            class="fi-ta-empty-state-icon-ctn mb-4 rounded-full bg-gray-100 p-3 dark:bg-gray-500/20"
+            class="re-ta-empty-state-icon-ctn mb-4 rounded-full bg-gray-100 p-3 dark:bg-gray-500/20"
         >
             <x-wellcms::icon
                 :icon="$icon"
-                class="fi-ta-empty-state-icon h-6 w-6 text-gray-500 dark:text-gray-400"
+                class="re-ta-empty-state-icon h-6 w-6 text-gray-500 dark:text-gray-400"
             />
         </div>
 

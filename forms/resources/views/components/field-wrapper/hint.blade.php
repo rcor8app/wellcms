@@ -8,19 +8,19 @@
 <div
     {{
         $attributes->class([
-            'fi-fo-field-wrp-hint flex items-center gap-x-3 text-sm',
+            're-fo-field-wrp-hint flex items-center gap-x-3 text-sm',
         ])
     }}
 >
     @if (! \WellCMS\Support\is_slot_empty($slot))
         <span
             @class([
-                'fi-fo-field-wrp-hint-label',
+                're-fo-field-wrp-hint-label',
                 match ($color) {
                     'gray' => 'text-gray-500 dark:text-gray-400',
-                    default => 'fi-color-custom text-custom-600 dark:text-custom-400',
+                    default => 're-color-custom text-custom-600 dark:text-custom-400',
                 },
-                is_string($color) ? "fi-color-{$color}" : null,
+                is_string($color) ? "re-color-{$color}" : null,
             ])
             @style([
                 \WellCMS\Support\get_color_css_variables(
@@ -40,7 +40,7 @@
             :icon="$icon"
             :x-tooltip="filled($tooltip) ? '{ content: ' . \Illuminate\Support\Js::from($tooltip) . ', theme: $store.theme }' : null"
             @class([
-                'fi-fo-field-wrp-hint-icon h-5 w-5',
+                're-fo-field-wrp-hint-icon h-5 w-5',
                 match ($color) {
                     'gray' => 'text-gray-400 dark:text-gray-500',
                     default => 'text-custom-500 dark:text-custom-400',
@@ -57,7 +57,7 @@
     @endif
 
     @if (count($actions))
-        <div class="fi-fo-field-wrp-hint-action flex items-center gap-3">
+        <div class="re-fo-field-wrp-hint-action flex items-center gap-3">
             @foreach ($actions as $action)
                 {{ $action }}
             @endforeach

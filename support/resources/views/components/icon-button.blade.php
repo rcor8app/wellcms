@@ -43,7 +43,7 @@
     }
 
     $buttonClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-icon-btn relative flex items-center justify-center rounded-lg outline-none transition duration-75 focus-visible:ring-2',
+        're-icon-btn relative flex items-center justify-center rounded-lg outline-none transition duration-75 focus-visible:ring-2',
         'pointer-events-none opacity-70' => $disabled,
         ...match ($size) {
             ActionSize::ExtraSmall => [
@@ -89,9 +89,9 @@
         },
         match ($color) {
             'gray' => 'text-gray-400 hover:text-gray-500 focus-visible:ring-primary-600 dark:text-gray-500 dark:hover:text-gray-400 dark:focus-visible:ring-primary-500',
-            default => 'fi-color-custom text-custom-500 hover:text-custom-600 focus-visible:ring-custom-600 dark:text-custom-400 dark:hover:text-custom-300 dark:focus-visible:ring-custom-500',
+            default => 're-color-custom text-custom-500 hover:text-custom-600 focus-visible:ring-custom-600 dark:text-custom-400 dark:hover:text-custom-300 dark:focus-visible:ring-custom-500',
         },
-        is_string($color) ? "fi-color-{$color}" : null,
+        is_string($color) ? "re-color-{$color}" : null,
     ]);
 
     $buttonStyles = \WellCMS\Support\get_color_css_variables(
@@ -101,7 +101,7 @@
     );
 
     $iconClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-icon-btn-icon',
+        're-icon-btn-icon',
         match ($iconSize) {
             IconSize::Small => 'h-4 w-4',
             IconSize::Medium => 'h-5 w-5',
@@ -110,7 +110,7 @@
         },
     ]);
 
-    $badgeContainerClasses = 'fi-icon-btn-badge-ctn absolute start-full top-1 z-[1] w-max -translate-x-1/2 -translate-y-1/2 rounded-md bg-white dark:bg-gray-900 rtl:translate-x-1/2';
+    $badgeContainerClasses = 're-icon-btn-badge-ctn absolute start-full top-1 z-[1] w-max -translate-x-1/2 -translate-y-1/2 rounded-md bg-white dark:bg-gray-900 rtl:translate-x-1/2';
 
     $wireTarget = $loadingIndicator ? $attributes->whereStartsWith(['wire:target', 'wire:click'])->filter(fn ($value): bool => filled($value))->first() : null;
 

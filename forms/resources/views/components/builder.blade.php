@@ -40,7 +40,7 @@
         {{
             $attributes
                 ->merge($getExtraAttributes(), escape: false)
-                ->class(['fi-fo-builder grid grid-cols-1 gap-y-4'])
+                ->class(['re-fo-builder grid grid-cols-1 gap-y-4'])
         }}
     >
         @if ($collapseAllActionIsVisible || $expandAllActionIsVisible)
@@ -110,8 +110,8 @@
                         x-on:builder-collapse.window="$event.detail === '{{ $statePath }}' && (isCollapsed = true)"
                         x-on:expand="isCollapsed = false"
                         x-sortable-item="{{ $uuid }}"
-                        class="fi-fo-builder-item rounded-xl bg-white shadow-sm ring-1 ring-gray-950/5 dark:bg-white/5 dark:ring-white/10"
-                        x-bind:class="{ 'fi-collapsed': isCollapsed }"
+                        class="re-fo-builder-item rounded-xl bg-white shadow-sm ring-1 ring-gray-950/5 dark:bg-white/5 dark:ring-white/10"
+                        x-bind:class="{ 're-collapsed': isCollapsed }"
                     >
                         @if ($reorderActionIsVisible || $moveUpActionIsVisible || $moveDownActionIsVisible || $hasBlockIcons || $hasBlockLabels || $editActionIsVisible || $cloneActionIsVisible || $deleteActionIsVisible || $isCollapsible || $visibleExtraItemActions)
                             <div
@@ -119,7 +119,7 @@
                                     x-on:click.stop="isCollapsed = !isCollapsed"
                                 @endif
                                 @class([
-                                    'fi-fo-builder-item-header flex items-center gap-x-3 overflow-hidden px-4 py-3',
+                                    're-fo-builder-item-header flex items-center gap-x-3 overflow-hidden px-4 py-3',
                                     'cursor-pointer select-none' => $isCollapsible,
                                 ])
                             >
@@ -153,7 +153,7 @@
                                 @if ($hasBlockIcons && filled($blockIcon))
                                     <x-wellcms::icon
                                         :icon="$blockIcon"
-                                        class="fi-fo-builder-item-header-icon h-5 w-5 text-gray-400 dark:text-gray-500"
+                                        class="re-fo-builder-item-header-icon h-5 w-5 text-gray-400 dark:text-gray-500"
                                     />
                                 @endif
 
@@ -229,14 +229,14 @@
                         <div
                             x-show="! isCollapsed"
                             @class([
-                                'fi-fo-builder-item-content relative border-t border-gray-100 dark:border-white/10',
+                                're-fo-builder-item-content relative border-t border-gray-100 dark:border-white/10',
                                 'p-4' => ! ($hasBlockPreviews && $item->getParentComponent()->hasPreview()),
                             ])
                         >
                             @if ($hasBlockPreviews && $item->getParentComponent()->hasPreview())
                                 <div
                                     @class([
-                                        'fi-fo-builder-item-preview',
+                                        're-fo-builder-item-preview',
                                         'pointer-events-none' => ! $hasInteractiveBlockPreviews,
                                     ])
                                 >
@@ -263,7 +263,7 @@
                                     class="flex w-full justify-center opacity-0 transition duration-75 hover:opacity-100"
                                 >
                                     <div
-                                        class="fi-fo-builder-block-picker-ctn rounded-lg bg-white dark:bg-gray-900"
+                                        class="re-fo-builder-block-picker-ctn rounded-lg bg-white dark:bg-gray-900"
                                     >
                                         <x-wellcms-forms::builder.block-picker
                                             :action="$addBetweenAction"

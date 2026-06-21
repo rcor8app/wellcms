@@ -16,7 +16,7 @@
         {{
             $attributes
                 ->merge($getExtraAttributes(), escape: false)
-                ->class(['fi-fo-placeholder text-sm leading-6'])
+                ->class(['re-fo-placeholder text-sm leading-6'])
         }}
     >
         {{ $getContent() }}

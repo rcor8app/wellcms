@@ -7,6 +7,6 @@
                 $applyStateBindingModifiers('wire:model') => $getStatePath(),
             ], escape: false)
             ->merge($getExtraAttributes(), escape: false)
-            ->class(['fi-fo-hidden'])
+            ->class(['re-fo-hidden'])
     }}
 />

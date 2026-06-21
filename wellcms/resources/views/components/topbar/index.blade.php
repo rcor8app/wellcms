@@ -5,8 +5,8 @@
 <div
     {{
         $attributes->class([
-            'fi-topbar sticky top-0 z-20 overflow-x-clip',
-            'fi-topbar-with-navigation' => wellcms()->hasTopNavigation(),
+            're-topbar sticky top-0 z-20 overflow-x-clip',
+            're-topbar-with-navigation' => wellcms()->hasTopNavigation(),
         ])
     }}
 >
@@ -27,7 +27,7 @@
                 x-on:click="$store.sidebar.open()"
                 x-show="! $store.sidebar.isOpen"
                 @class([
-                    'fi-topbar-open-sidebar-btn',
+                    're-topbar-open-sidebar-btn',
                     'lg:hidden' => (! wellcms()->isSidebarFullyCollapsibleOnDesktop()) || wellcms()->isSidebarCollapsibleOnDesktop(),
                 ])
             />
@@ -42,7 +42,7 @@
                 x-data="{}"
                 x-on:click="$store.sidebar.close()"
                 x-show="$store.sidebar.isOpen"
-                class="fi-topbar-close-sidebar-btn lg:hidden"
+                class="re-topbar-close-sidebar-btn lg:hidden"
             />
         @endif
 

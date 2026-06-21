@@ -63,8 +63,8 @@
             ->merge($getExtraAttributes(), escape: false)
             ->merge($getExtraAlpineAttributes(), escape: false)
             ->class([
-                'fi-fo-tabs flex flex-col',
-                'fi-contained rounded-xl bg-white shadow-sm ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10' => $isContained,
+                're-fo-tabs flex flex-col',
+                're-contained rounded-xl bg-white shadow-sm ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10' => $isContained,
             ])
     }}
 >

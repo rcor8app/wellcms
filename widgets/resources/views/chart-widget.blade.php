@@ -7,7 +7,7 @@
     $filters = $this->getFilters();
 @endphp
 
-<x-wellcms-widgets::widget class="fi-wi-chart">
+<x-wellcms-widgets::widget class="re-wi-chart">
     <x-wellcms::section :description="$description" :heading="$heading">
         @if ($filters)
             <x-slot name="headerEnd">
@@ -51,9 +51,9 @@
                 @class([
                     match ($color) {
                         'gray' => null,
-                        default => 'fi-color-custom',
+                        default => 're-color-custom',
                     },
-                    is_string($color) ? "fi-color-{$color}" : null,
+                    is_string($color) ? "re-color-{$color}" : null,
                 ])
             >
                 <canvas

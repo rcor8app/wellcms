@@ -7,6 +7,6 @@
     :alt="__('wellcms-panels::layout.avatar.alt', ['name' => wellcms()->getUserName($user)])"
     :attributes="
         \WellCMS\Support\prepare_inherited_attributes($attributes)
-            ->class(['fi-user-avatar'])
+            ->class(['re-user-avatar'])
     "
 />

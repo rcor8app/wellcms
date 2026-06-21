@@ -24,15 +24,15 @@
 
 @php
     $buttonClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-dropdown-list-item flex w-full items-center gap-2 whitespace-nowrap rounded-md p-2 text-sm transition-colors duration-75 outline-none disabled:pointer-events-none disabled:opacity-70',
+        're-dropdown-list-item flex w-full items-center gap-2 whitespace-nowrap rounded-md p-2 text-sm transition-colors duration-75 outline-none disabled:pointer-events-none disabled:opacity-70',
         'pointer-events-none opacity-70' => $disabled,
         match ($color) {
             'gray' => 'hover:bg-gray-50 focus-visible:bg-gray-50 dark:hover:bg-white/5 dark:focus-visible:bg-white/5',
-            default => 'fi-color-custom hover:bg-custom-50 focus-visible:bg-custom-50 dark:hover:bg-custom-400/10 dark:focus-visible:bg-custom-400/10',
+            default => 're-color-custom hover:bg-custom-50 focus-visible:bg-custom-50 dark:hover:bg-custom-400/10 dark:focus-visible:bg-custom-400/10',
         },
         // @deprecated `fi-dropdown-list-item-color-*` has been replaced by `fi-color-*` and `fi-color-custom`.
-        is_string($color) ? "fi-dropdown-list-item-color-{$color}" : null,
-        is_string($color) ? "fi-color-{$color}" : null,
+        is_string($color) ? "re-dropdown-list-item-color-{$color}" : null,
+        is_string($color) ? "re-color-{$color}" : null,
     ]);
 
     $buttonStyles = \Illuminate\Support\Arr::toCssStyles([
@@ -46,7 +46,7 @@
     $iconColor ??= $color;
 
     $iconClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-dropdown-list-item-icon',
+        're-dropdown-list-item-icon',
         match ($iconSize) {
             IconSize::Small, 'sm' => 'h-4 w-4',
             IconSize::Medium, 'md' => 'h-5 w-5',
@@ -67,10 +67,10 @@
         ) => $iconColor !== 'gray',
     ]);
 
-    $imageClasses = 'fi-dropdown-list-item-image h-5 w-5 rounded-full bg-cover bg-center';
+    $imageClasses = 're-dropdown-list-item-image h-5 w-5 rounded-full bg-cover bg-center';
 
     $labelClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-dropdown-list-item-label flex-1 truncate text-start',
+        're-dropdown-list-item-label flex-1 truncate text-start',
         match ($color) {
             'gray' => 'text-gray-700 dark:text-gray-200',
             default => 'text-custom-600 dark:text-custom-400 ',

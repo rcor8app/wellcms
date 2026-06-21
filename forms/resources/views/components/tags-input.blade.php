@@ -47,7 +47,7 @@
         :attributes="
             \WellCMS\Support\prepare_inherited_attributes($attributes)
                 ->merge($getExtraAttributes(), escape: false)
-                ->class(['fi-fo-tags-input'])
+                ->class(['re-fo-tags-input'])
         "
     >
         <div
@@ -101,7 +101,7 @@
                                 x-sortable
                                 data-sortable-animation-duration="{{ $getReorderAnimationDuration() }}"
                             @endif
-                            class="fi-fo-tags-input-tags-ctn flex w-full flex-wrap gap-1.5 border-t border-t-gray-200 p-2 dark:border-t-white/10"
+                            class="re-fo-tags-input-tags-ctn flex w-full flex-wrap gap-1.5 border-t border-t-gray-200 p-2 dark:border-t-white/10"
                         >
                             <template
                                 x-for="(tag, index) in state"

@@ -35,7 +35,7 @@
         {{
             $attributes
                 ->merge($getExtraAttributes(), escape: false)
-                ->class(['fi-fo-repeater grid gap-y-4'])
+                ->class(['re-fo-repeater grid gap-y-4'])
         }}
     >
         @if ($collapseAllActionIsVisible || $expandAllActionIsVisible)
@@ -105,8 +105,8 @@
                             x-on:repeater-expand.window="$event.detail === '{{ $statePath }}' && (isCollapsed = false)"
                             x-on:repeater-collapse.window="$event.detail === '{{ $statePath }}' && (isCollapsed = true)"
                             x-sortable-item="{{ $uuid }}"
-                            class="fi-fo-repeater-item divide-y divide-gray-100 rounded-xl bg-white shadow-sm ring-1 ring-gray-950/5 dark:divide-white/10 dark:bg-white/5 dark:ring-white/10"
-                            x-bind:class="{ 'fi-collapsed': isCollapsed }"
+                            class="re-fo-repeater-item divide-y divide-gray-100 rounded-xl bg-white shadow-sm ring-1 ring-gray-950/5 dark:divide-white/10 dark:bg-white/5 dark:ring-white/10"
+                            x-bind:class="{ 're-collapsed': isCollapsed }"
                         >
                             @if ($reorderActionIsVisible || $moveUpActionIsVisible || $moveDownActionIsVisible || filled($itemLabel) || $cloneActionIsVisible || $deleteActionIsVisible || $isCollapsible || $visibleExtraItemActions)
                                 <div
@@ -114,7 +114,7 @@
                                         x-on:click.stop="isCollapsed = !isCollapsed"
                                     @endif
                                     @class([
-                                        'fi-fo-repeater-item-header flex items-center gap-x-3 overflow-hidden px-4 py-3',
+                                        're-fo-repeater-item-header flex items-center gap-x-3 overflow-hidden px-4 py-3',
                                         'cursor-pointer select-none' => $isCollapsible,
                                     ])
                                 >
@@ -212,7 +212,7 @@
 
                             <div
                                 x-show="! isCollapsed"
-                                class="fi-fo-repeater-item-content p-4"
+                                class="re-fo-repeater-item-content p-4"
                             >
                                 {{ $item }}
                             </div>
@@ -222,7 +222,7 @@
                             @if ($isAddable && $addBetweenAction(['afterItem' => $uuid])->isVisible())
                                 <li class="flex w-full justify-center">
                                     <div
-                                        class="fi-fo-repeater-add-between-action-ctn rounded-lg bg-white dark:bg-gray-900"
+                                        class="re-fo-repeater-add-between-action-ctn rounded-lg bg-white dark:bg-gray-900"
                                     >
                                         {{ $addBetweenAction(['afterItem' => $uuid]) }}
                                     </div>

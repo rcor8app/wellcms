@@ -3,7 +3,7 @@
     :group="$group"
     :icon-position="$getIconPosition()"
     :size="$getSize()"
-    class="fi-ac-badge-group"
+    class="re-ac-badge-group"
 >
     {{ $getLabel() }}
 </x-wellcms-actions::group>

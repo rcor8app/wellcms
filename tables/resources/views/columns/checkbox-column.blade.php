@@ -45,7 +45,7 @@
         $attributes
             ->merge($getExtraAttributes(), escape: false)
             ->class([
-                'fi-ta-checkbox flex items-center',
+                're-ta-checkbox flex items-center',
                 'px-3 py-4' => ! $isInline(),
             ])
     }}

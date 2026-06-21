@@ -6,7 +6,7 @@
 <div>
     <div
         @class([
-            'fi-no pointer-events-none fixed inset-4 z-50 mx-auto flex gap-3',
+            're-no pointer-events-none fixed inset-4 z-50 mx-auto flex gap-3',
             match (static::$alignment) {
                 Alignment::Start, Alignment::Left => 'items-start',
                 Alignment::Center => 'items-center',

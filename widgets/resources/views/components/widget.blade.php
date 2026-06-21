@@ -29,7 +29,7 @@
     :lgStart="$columnStart['lg'] ?? null"
     :xlStart="$columnStart['xl'] ?? null"
     :twoXlStart="$columnStart['2xl'] ?? null"
-    :attributes="\WellCMS\Support\prepare_inherited_attributes($attributes)->class('fi-wi-widget')"
+    :attributes="\WellCMS\Support\prepare_inherited_attributes($attributes)->class('re-wi-widget')"
 >
     {{ $slot }}
 </x-wellcms::grid.column>

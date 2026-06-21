@@ -3,7 +3,7 @@
 ])
 
 @php
-    $openSidebarClasses = 'fi-sidebar-open w-[--sidebar-width] translate-x-0 shadow-xl ring-1 ring-gray-950/5 dark:ring-white/10 rtl:-translate-x-0';
+    $openSidebarClasses = 're-sidebar-open w-[--sidebar-width] translate-x-0 shadow-xl ring-1 ring-gray-950/5 dark:ring-white/10 rtl:-translate-x-0';
     $isRtl = __('wellcms-panels::layout.direction') === 'rtl';
 @endphp
 
@@ -35,7 +35,7 @@
     @endif
     {{
         $attributes->class([
-            'fi-sidebar fixed inset-y-0 start-0 z-30 flex flex-col h-screen content-start bg-white transition-all dark:bg-gray-900 lg:z-0 lg:bg-transparent lg:shadow-none lg:ring-0 lg:transition-none dark:lg:bg-transparent',
+            're-sidebar fixed inset-y-0 start-0 z-30 flex flex-col h-screen content-start bg-white transition-all dark:bg-gray-900 lg:z-0 lg:bg-transparent lg:shadow-none lg:ring-0 lg:transition-none dark:lg:bg-transparent',
             'lg:translate-x-0 rtl:lg:-translate-x-0' => ! (wellcms()->isSidebarCollapsibleOnDesktop() || wellcms()->isSidebarFullyCollapsibleOnDesktop() || wellcms()->hasTopNavigation()),
             'lg:-translate-x-full rtl:lg:translate-x-full' => wellcms()->hasTopNavigation(),
         ])
@@ -43,7 +43,7 @@
 >
     <div class="overflow-x-clip">
         <header
-            class="fi-sidebar-header flex h-16 items-center bg-white px-6 ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10 lg:shadow-sm"
+            class="re-sidebar-header flex h-16 items-center bg-white px-6 ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10 lg:shadow-sm"
         >
             <div
                 @if (wellcms()->isSidebarCollapsibleOnDesktop())
@@ -97,7 +97,7 @@
     </div>
 
     <nav
-        class="fi-sidebar-nav flex-grow flex flex-col gap-y-7 overflow-y-auto overflow-x-hidden px-6 py-8"
+        class="re-sidebar-nav flex-grow flex flex-col gap-y-7 overflow-y-auto overflow-x-hidden px-6 py-8"
         style="scrollbar-gutter: stable"
     >
         {{ \WellCMS\Support\Facades\WellCMSView::renderHook(\WellCMS\View\PanelsRenderHook::SIDEBAR_NAV_START) }}
@@ -105,7 +105,7 @@
         @if (wellcms()->hasTenancy() && wellcms()->hasTenantMenu())
             <div
                 @class([
-                    'fi-sidebar-nav-tenant-menu-ctn',
+                    're-sidebar-nav-tenant-menu-ctn',
                     '-mx-2' => ! wellcms()->isSidebarCollapsibleOnDesktop(),
                 ])
                 @if (wellcms()->isSidebarCollapsibleOnDesktop())
@@ -116,7 +116,7 @@
             </div>
         @endif
 
-        <ul class="fi-sidebar-nav-groups -mx-2 flex flex-col gap-y-7">
+        <ul class="re-sidebar-nav-groups -mx-2 flex flex-col gap-y-7">
             @foreach ($navigation as $group)
                 <x-wellcms-panels::sidebar.group
                     :active="$group->isActive()"

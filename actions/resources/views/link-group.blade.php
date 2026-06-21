@@ -6,7 +6,7 @@
     :icon-position="$getIconPosition()"
     :size="$getSize()"
     tag="button"
-    class="fi-ac-link-group"
+    class="re-ac-link-group"
 >
     {{ $getLabel() }}
 </x-wellcms-actions::group>

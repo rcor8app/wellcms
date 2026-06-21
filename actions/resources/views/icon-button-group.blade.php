@@ -5,5 +5,5 @@
     :group="$group"
     :label="$getLabel()"
     :size="$getSize()"
-    class="fi-ac-icon-btn-group"
+    class="re-ac-icon-btn-group"
 />

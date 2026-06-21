@@ -36,7 +36,7 @@
             \WellCMS\Support\prepare_inherited_attributes($attributes)
                 ->merge($getExtraAttributes(), escape: false)
                 ->class([
-                    'fi-fo-toggle-buttons gap-3',
+                    're-fo-toggle-buttons gap-3',
                     '-mt-3' => (! $isInline) && ($gridDirection === 'column'),
                     'flex flex-wrap' => $isInline,
                 ])

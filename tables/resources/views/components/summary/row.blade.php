@@ -29,7 +29,7 @@
 <x-wellcms-tables::row
     :attributes="
         \WellCMS\Support\prepare_inherited_attributes($attributes)
-            ->class(['fi-ta-summary-row'])
+            ->class(['re-ta-summary-row'])
     "
 >
     @if ($placeholderColumns && $actions && in_array($actionsPosition, [ActionsPosition::BeforeCells, ActionsPosition::BeforeColumns]))
@@ -44,7 +44,7 @@
         <x-wellcms-tables::cell
             class="text-sm font-medium text-gray-950 dark:text-white"
         >
-            <span class="fi-ta-summary-row-heading px-3 py-4">
+            <span class="re-ta-summary-row-heading px-3 py-4">
                 {{ $heading }}
             </span>
         </x-wellcms-tables::cell>
@@ -92,7 +92,7 @@
             >
                 @if ($loop->first && (! $extraHeadingColumn) && (! $groupsOnly))
                     <span
-                        class="fi-ta-summary-row-heading flex px-3 py-4 text-sm font-medium text-gray-950 dark:text-white"
+                        class="re-ta-summary-row-heading flex px-3 py-4 text-sm font-medium text-gray-950 dark:text-white"
                     >
                         {{ $heading }}
                     </span>

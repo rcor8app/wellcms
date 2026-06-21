@@ -3,13 +3,13 @@
 ])
 
 <div
-    {{ $attributes->class(['fi-page-sub-navigation-sidebar-ctn hidden w-72 flex-col md:flex']) }}
+    {{ $attributes->class(['re-page-sub-navigation-sidebar-ctn hidden w-72 flex-col md:flex']) }}
 >
     {{ \WellCMS\Support\Facades\WellCMSView::renderHook(\WellCMS\View\PanelsRenderHook::PAGE_SUB_NAVIGATION_SIDEBAR_BEFORE, scopes: $this->getRenderHookScopes()) }}
 
     <ul
         wire:ignore
-        class="fi-page-sub-navigation-sidebar flex flex-col gap-y-7"
+        class="re-page-sub-navigation-sidebar flex flex-col gap-y-7"
     >
         @foreach ($navigation as $navigationGroup)
             <x-wellcms-panels::sidebar.group

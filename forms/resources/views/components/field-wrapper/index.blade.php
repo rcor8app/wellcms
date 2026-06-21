@@ -55,7 +55,7 @@
     {{
         $attributes
             ->merge($field?->getExtraFieldWrapperAttributes() ?? [])
-            ->class(['fi-fo-field-wrp'])
+            ->class(['re-fo-field-wrp'])
     }}
 >
     @if ($label && $labelSrOnly)

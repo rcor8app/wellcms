@@ -38,7 +38,7 @@
     <div
         {{
             $attributes->class([
-                'fi-ac gap-3',
+                're-ac gap-3',
                 'flex flex-wrap items-center' => ! $fullWidth,
                 match ($alignment) {
                     Alignment::Start, Alignment::Left => 'justify-start',

@@ -5,5 +5,5 @@
     icon-alias="panels::topbar.open-database-notifications-button"
     icon-size="lg"
     :label="__('wellcms-panels::layout.actions.open_database_notifications.label')"
-    class="fi-topbar-database-notifications-btn"
+    class="re-topbar-database-notifications-btn"
 />

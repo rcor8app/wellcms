@@ -5,5 +5,5 @@
     dynamic-component="wellcms::icon-button"
     :label="$getLabel()"
     :size="$getSize()"
-    class="fi-ac-icon-btn-action"
+    class="re-ac-icon-btn-action"
 />

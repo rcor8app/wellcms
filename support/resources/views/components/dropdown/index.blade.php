@@ -37,11 +37,11 @@
             $refs.panel?.close(event)
         },
     }"
-    {{ $attributes->class(['fi-dropdown']) }}
+    {{ $attributes->class(['re-dropdown']) }}
 >
     <div
         x-on:click="toggle"
-        {{ $trigger->attributes->class(['fi-dropdown-trigger flex cursor-pointer']) }}
+        {{ $trigger->attributes->class(['re-dropdown-trigger flex cursor-pointer']) }}
     >
         {{ $trigger }}
     </div>
@@ -58,7 +58,7 @@
                 wire:key="{{ $attributes->get('wire:key') }}.panel"
             @endif
             @class([
-                'fi-dropdown-panel absolute z-10 w-screen divide-y divide-gray-100 rounded-lg bg-white shadow-lg ring-1 ring-gray-950/5 transition dark:divide-white/5 dark:bg-gray-900 dark:ring-white/10',
+                're-dropdown-panel absolute z-10 w-screen divide-y divide-gray-100 rounded-lg bg-white shadow-lg ring-1 ring-gray-950/5 transition dark:divide-white/5 dark:bg-gray-900 dark:ring-white/10',
                 match ($width) {
                     // These max width classes need to be `!important` otherwise they will be usurped by the Floating UI "size" middleware.
                     MaxWidth::ExtraSmall, 'xs' => '!max-w-xs',

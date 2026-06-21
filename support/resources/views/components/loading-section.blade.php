@@ -27,7 +27,7 @@
     :lgStart="$columnStart['lg'] ?? null"
     :xlStart="$columnStart['xl'] ?? null"
     :twoXlStart="$columnStart['2xl'] ?? null"
-    class="fi-loading-section"
+    class="re-loading-section"
 >
     <x-wellcms::section class="animate-pulse" style="height: {{ $height }}" />
 </x-wellcms::grid.column>

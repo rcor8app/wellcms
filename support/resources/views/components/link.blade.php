@@ -49,11 +49,11 @@
     }
 
     $linkClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-link group/link relative inline-flex items-center justify-center outline-none',
+        're-link group/link relative inline-flex items-center justify-center outline-none',
         'pointer-events-none opacity-70' => $disabled,
-        ($size instanceof ActionSize) ? "fi-size-{$size->value}" : null,
+        ($size instanceof ActionSize) ? "re-size-{$size->value}" : null,
         // @deprecated `fi-link-size-*` has been replaced by `fi-size-*`.
-        ($size instanceof ActionSize) ? "fi-link-size-{$size->value}" : null,
+        ($size instanceof ActionSize) ? "re-link-size-{$size->value}" : null,
         match ($size) {
             ActionSize::ExtraSmall => 'gap-1',
             ActionSize::Small => 'gap-1',
@@ -64,9 +64,9 @@
         },
         match ($color) {
             'gray' => null,
-            default => 'fi-color-custom',
+            default => 're-color-custom',
         },
-        is_string($color) ? "fi-color-{$color}" : null,
+        is_string($color) ? "re-color-{$color}" : null,
     ]);
 
     if (! $labelSrOnly) {
@@ -110,7 +110,7 @@
     ]);
 
     $iconClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-link-icon',
+        're-link-icon',
         match ($iconSize) {
             IconSize::Small => 'h-4 w-4',
             IconSize::Medium => 'h-5 w-5',
@@ -131,7 +131,7 @@
         ) => $color !== 'gray',
     ]);
 
-    $badgeContainerClasses = 'fi-link-badge-ctn absolute start-full top-0 z-[1] w-max -translate-x-1/4 -translate-y-3/4 rounded-md bg-white dark:bg-gray-900 rtl:translate-x-1/4';
+    $badgeContainerClasses = 're-link-badge-ctn absolute start-full top-0 z-[1] w-max -translate-x-1/4 -translate-y-3/4 rounded-md bg-white dark:bg-gray-900 rtl:translate-x-1/4';
 
     $wireTarget = $loadingIndicator ? $attributes->whereStartsWith(['wire:target', 'wire:click'])->filter(fn ($value): bool => filled($value))->first() : null;
 

@@ -7,7 +7,7 @@
 
         theme = localStorage.getItem('theme') || @js(wellcms()->getDefaultThemeMode()->value)
     "
-    class="fi-theme-switcher grid grid-flow-col gap-x-1"
+    class="re-theme-switcher grid grid-flow-col gap-x-1"
 >
     <x-wellcms-panels::theme-switcher.button
         icon="heroicon-m-sun"

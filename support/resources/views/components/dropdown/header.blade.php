@@ -13,14 +13,14 @@
     {{
         $attributes
             ->class([
-                'fi-dropdown-header flex w-full gap-2 p-3 text-sm',
+                're-dropdown-header flex w-full gap-2 p-3 text-sm',
                 match ($color) {
                     'gray' => null,
-                    default => 'fi-color-custom',
+                    default => 're-color-custom',
                 },
                 // @deprecated `fi-dropdown-header-color-*` has been replaced by `fi-color-*` and `fi-color-custom`.
-                is_string($color) ? "fi-dropdown-header-color-{$color}" : null,
-                is_string($color) ? "fi-color-{$color}" : null,
+                is_string($color) ? "re-dropdown-header-color-{$color}" : null,
+                is_string($color) ? "re-color-{$color}" : null,
             ])
     }}
 >
@@ -28,7 +28,7 @@
         <x-wellcms::icon
             :icon="$icon"
             @class([
-                'fi-dropdown-header-icon',
+                're-dropdown-header-icon',
                 match ($iconSize) {
                     IconSize::Small, 'sm' => 'h-4 w-4',
                     IconSize::Medium, 'md' => 'h-5 w-5',
@@ -52,7 +52,7 @@
 
     <span
         @class([
-            'fi-dropdown-header-label flex-1 truncate text-start',
+            're-dropdown-header-label flex-1 truncate text-start',
             match ($color) {
                 'gray' => 'text-gray-700 dark:text-gray-200',
                 default => 'text-custom-600 dark:text-custom-400',

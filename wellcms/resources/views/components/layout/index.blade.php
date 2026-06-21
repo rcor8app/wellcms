@@ -8,19 +8,19 @@
 <x-wellcms-panels::layout.base :livewire="$livewire">
     {{-- The sidebar is after the page content in the markup to fix issues with page content overlapping dropdown content from the sidebar. --}}
     <div
-        class="fi-layout flex min-h-screen w-full flex-row-reverse overflow-x-clip"
+        class="re-layout flex min-h-screen w-full flex-row-reverse overflow-x-clip"
     >
         <div
             @if (wellcms()->isSidebarCollapsibleOnDesktop())
                 x-data="{}"
                 x-bind:class="{
-                    'fi-main-ctn-sidebar-open': $store.sidebar.isOpen,
+                    're-main-ctn-sidebar-open': $store.sidebar.isOpen,
                 }"
                 x-bind:style="'display: flex; opacity:1;'" {{-- Mimics `x-cloak`, as using `x-cloak` causes visual issues with chart widgets --}}
             @elseif (wellcms()->isSidebarFullyCollapsibleOnDesktop())
                 x-data="{}"
                 x-bind:class="{
-                    'fi-main-ctn-sidebar-open': $store.sidebar.isOpen,
+                    're-main-ctn-sidebar-open': $store.sidebar.isOpen,
                 }"
                 x-bind:style="'display: flex; opacity:1;'" {{-- Mimics `x-cloak`, as using `x-cloak` causes visual issues with chart widgets --}}
             @elseif (! (wellcms()->isSidebarCollapsibleOnDesktop() || wellcms()->isSidebarFullyCollapsibleOnDesktop() || wellcms()->hasTopNavigation() || (! wellcms()->hasNavigation())))
@@ -28,7 +28,7 @@
                 x-bind:style="'display: flex; opacity:1;'" {{-- Mimics `x-cloak`, as using `x-cloak` causes visual issues with chart widgets --}}
             @endif
             @class([
-                'fi-main-ctn w-screen flex-1 flex-col',
+                're-main-ctn w-screen flex-1 flex-col',
                 'h-full opacity-0 transition-all' => wellcms()->isSidebarCollapsibleOnDesktop() || wellcms()->isSidebarFullyCollapsibleOnDesktop(),
                 'opacity-0' => ! (wellcms()->isSidebarCollapsibleOnDesktop() || wellcms()->isSidebarFullyCollapsibleOnDesktop() || wellcms()->hasTopNavigation() || (! wellcms()->hasNavigation())),
                 'flex' => wellcms()->hasTopNavigation() || (! wellcms()->hasNavigation()),
@@ -46,7 +46,7 @@
 
             <main
                 @class([
-                    'fi-main mx-auto h-full w-full px-4 md:px-6 lg:px-8',
+                    're-main mx-auto h-full w-full px-4 md:px-6 lg:px-8',
                     match ($maxContentWidth ??= (wellcms()->getMaxContentWidth() ?? MaxWidth::SevenExtraLarge)) {
                         MaxWidth::ExtraSmall, 'xs' => 'max-w-xs',
                         MaxWidth::Small, 'sm' => 'max-w-sm',
@@ -92,12 +92,12 @@
                 x-on:click="$store.sidebar.close()"
                 x-show="$store.sidebar.isOpen"
                 x-transition.opacity.300ms
-                class="fi-sidebar-close-overlay fixed inset-0 z-30 bg-gray-950/50 transition duration-500 dark:bg-gray-950/75 lg:hidden"
+                class="re-sidebar-close-overlay fixed inset-0 z-30 bg-gray-950/50 transition duration-500 dark:bg-gray-950/75 lg:hidden"
             ></div>
 
             <x-wellcms-panels::sidebar
                 :navigation="$navigation"
-                class="fi-main-sidebar"
+                class="re-main-sidebar"
             />
 
             <script>

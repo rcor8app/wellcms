@@ -7,7 +7,7 @@
     :labeled-from="$getLabeledFromBreakpoint()"
     :outlined="$isOutlined()"
     :size="$getSize()"
-    class="fi-ac-btn-group"
+    class="re-ac-btn-group"
 >
     {{ $getLabel() }}
 </x-wellcms-actions::group>

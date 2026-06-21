@@ -7,9 +7,9 @@
     {{
         $attributes
             ->class([
-                'fi-avatar object-cover object-center',
+                're-avatar object-cover object-center',
                 'rounded-md' => ! $circular,
-                'fi-circular rounded-full' => $circular,
+                're-circular rounded-full' => $circular,
                 match ($size) {
                     'sm' => 'h-6 w-6',
                     'md' => 'h-8 w-8',

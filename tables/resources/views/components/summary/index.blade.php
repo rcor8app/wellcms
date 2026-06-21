@@ -32,7 +32,7 @@
 
 @if ($hasPageSummary)
     <x-wellcms-tables::row
-        class="fi-ta-summary-header-row bg-gray-50 dark:bg-white/5"
+        class="re-ta-summary-header-row bg-gray-50 dark:bg-white/5"
     >
         @if ($placeholderColumns && $actions && in_array($actionsPosition, [ActionsPosition::BeforeCells, ActionsPosition::BeforeColumns]))
             <td></td>

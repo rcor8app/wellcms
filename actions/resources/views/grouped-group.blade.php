@@ -4,7 +4,7 @@
     dynamic-component="wellcms::dropdown.list.item"
     :group="$group"
     :icon="$getGroupedIcon()"
-    class="fi-ac-grouped-group"
+    class="re-ac-grouped-group"
 >
     {{ $getLabel() }}
 </x-wellcms-actions::group>

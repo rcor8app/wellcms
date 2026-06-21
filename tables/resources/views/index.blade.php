@@ -121,7 +121,7 @@
     x-load-src="{{ \WellCMS\Support\Facades\WellCMSAsset::getAlpineComponentSrc('table', 'wellcms/tables') }}"
     x-data="table"
     @class([
-        'fi-ta',
+        're-ta',
         'animate-pulse' => $records === null,
     ])
 >
@@ -130,7 +130,7 @@
             @if (! $hasHeader) x-cloak @endif
             x-bind:hidden="! (@js($hasHeader) || (selectedRecords.length && @js(count($bulkActions))))"
             x-show="@js($hasHeader) || (selectedRecords.length && @js(count($bulkActions)))"
-            class="fi-ta-header-ctn divide-y divide-gray-200 dark:divide-white/10"
+            class="re-ta-header-ctn divide-y divide-gray-200 dark:divide-white/10"
         >
             {{ \WellCMS\Support\Facades\WellCMSView::renderHook(\WellCMS\Tables\View\TablesRenderHook::HEADER_BEFORE, scopes: static::class) }}
 
@@ -151,7 +151,7 @@
                 <div
                     x-data="{ areFiltersOpen: @js(! $hasFiltersAboveContentCollapsible) }"
                     @class([
-                        'fi-ta-filters-above-content-ctn grid px-4 py-4 sm:px-6',
+                        're-ta-filters-above-content-ctn grid px-4 py-4 sm:px-6',
                     ])
                 >
                     <x-wellcms-tables::filters
@@ -178,7 +178,7 @@
             <div
                 @if (! $hasHeaderToolbar) x-cloak @endif
                 x-show="@js($hasHeaderToolbar) || (selectedRecords.length && @js(count($bulkActions)))"
-                class="fi-ta-header-toolbar flex items-center justify-between gap-x-4 px-4 py-3 sm:px-6"
+                class="re-ta-header-toolbar flex items-center justify-between gap-x-4 px-4 py-3 sm:px-6"
             >
                 {{ \WellCMS\Support\Facades\WellCMSView::renderHook(\WellCMS\Tables\View\TablesRenderHook::TOOLBAR_START, scopes: static::class) }}
 
@@ -288,7 +288,7 @@
                 wire:poll.{{ $pollingInterval }}
             @endif
             @class([
-                'fi-ta-content relative divide-y divide-gray-200 overflow-x-auto dark:divide-white/10 dark:border-t-white/10',
+                're-ta-content relative divide-y divide-gray-200 overflow-x-auto dark:divide-white/10 dark:border-t-white/10',
                 '!border-t-0' => ! $hasHeader,
             ])
         >
@@ -324,7 +324,7 @@
                                         return null
                                     "
                                     x-on:click="toggleSelectRecordsOnPage"
-                                    class="fi-ta-page-checkbox my-4"
+                                    class="re-ta-page-checkbox my-4"
                                 />
                             @endif
 
@@ -412,7 +412,7 @@
                         x-sortable
                         :data-sortable-animation-duration="$getReorderAnimationDuration()"
                         @class([
-                            'fi-ta-content-grid gap-4 p-4 sm:px-6' => $contentGrid,
+                            're-ta-content-grid gap-4 p-4 sm:px-6' => $contentGrid,
                             'pt-0' => $contentGrid && $this->getTableGrouping(),
                             'gap-y-px bg-gray-200 dark:bg-white/5' => ! $contentGrid,
                         ])
@@ -488,7 +488,7 @@
                                     x-init="$dispatch('collapsible-table-row-initialized')"
                                     x-on:collapse-all-table-rows.window="isCollapsed = true"
                                     x-on:expand-all-table-rows.window="isCollapsed = false"
-                                    x-bind:class="isCollapsed && 'fi-collapsed'"
+                                    x-bind:class="isCollapsed && 're-collapsed'"
                                 @endif
                                 wire:key="{{ $this->getId() }}.table.records.{{ $recordKey }}"
                                 @if ($isReordering)
@@ -496,7 +496,7 @@
                                     x-sortable-handle
                                 @endif
                                 @class([
-                                    'fi-ta-record relative h-full bg-white transition duration-75 dark:bg-gray-900',
+                                    're-ta-record relative h-full bg-white transition duration-75 dark:bg-gray-900',
                                     'hover:bg-gray-50 dark:hover:bg-white/5' => ($recordUrl || $recordAction) && (! $contentGrid),
                                     'hover:bg-gray-50 dark:hover:bg-white/10 dark:hover:ring-white/20' => ($recordUrl || $recordAction) && $contentGrid,
                                     'rounded-xl shadow-sm ring-1 ring-gray-950/5 dark:bg-white/5 dark:ring-white/10' => $contentGrid,
@@ -562,7 +562,7 @@
                                             :value="$recordKey"
                                             x-model="selectedRecords"
                                             :data-group="$recordGroupKey"
-                                            class="fi-ta-record-checkbox mx-3 my-4"
+                                            class="re-ta-record-checkbox mx-3 my-4"
                                         />
                                     @endif
 
@@ -739,7 +739,7 @@
                                             colspan="{{ $columnGroupColumnsCount }}"
                                             {{
                                                 $columnGroup->getExtraHeaderAttributeBag()->class([
-                                                    'fi-table-header-group-cell border-gray-200 px-3 py-2 dark:border-white/5 sm:first-of-type:ps-6 sm:last-of-type:pe-6 [&:not(:first-of-type)]:border-s [&:not(:last-of-type)]:border-e',
+                                                    're-table-header-group-cell border-gray-200 px-3 py-2 dark:border-white/5 sm:first-of-type:ps-6 sm:last-of-type:pe-6 [&:not(:first-of-type)]:border-s [&:not(:last-of-type)]:border-e',
                                                 ])
                                             }}
                                         >
@@ -795,7 +795,7 @@
                                 @else
                                     <th
                                         aria-label="{{ trans_choice('wellcms-tables::table.columns.actions.label', $flatActionsCount) }}"
-                                        class="fi-ta-actions-header-cell w-1"
+                                        class="re-ta-actions-header-cell w-1"
                                     ></th>
                                 @endif
                             @endif
@@ -820,7 +820,7 @@
                                             return null
                                         "
                                         x-on:click="toggleSelectRecordsOnPage"
-                                        class="fi-ta-page-checkbox"
+                                        class="re-ta-page-checkbox"
                                     />
                                 </x-wellcms-tables::selection.cell>
                             @endif
@@ -833,7 +833,7 @@
                                 @else
                                     <th
                                         aria-label="{{ trans_choice('wellcms-tables::table.columns.actions.label', $flatActionsCount) }}"
-                                        class="fi-ta-actions-header-cell w-1"
+                                        class="re-ta-actions-header-cell w-1"
                                     ></th>
                                 @endif
                             @endif
@@ -854,7 +854,7 @@
                                 :attributes="
                                     \WellCMS\Support\prepare_inherited_attributes($column->getExtraHeaderAttributeBag())
                                         ->class([
-                                            'fi-table-header-cell-' . str($column->getName())->camel()->kebab(),
+                                            're-table-header-cell-' . str($column->getName())->camel()->kebab(),
                                             'w-full' => blank($columnWidth) && $column->canGrow(default: false),
                                             $getHiddenClasses($column),
                                         ])
@@ -878,7 +878,7 @@
                                 @else
                                     <th
                                         aria-label="{{ trans_choice('wellcms-tables::table.columns.actions.label', $flatActionsCount) }}"
-                                        class="fi-ta-actions-header-cell w-1"
+                                        class="re-ta-actions-header-cell w-1"
                                     ></th>
                                 @endif
                             @endif
@@ -903,7 +903,7 @@
                                             return null
                                         "
                                         x-on:click="toggleSelectRecordsOnPage"
-                                        class="fi-ta-page-checkbox"
+                                        class="re-ta-page-checkbox"
                                     />
                                 </x-wellcms-tables::selection.cell>
                             @endif
@@ -918,7 +918,7 @@
                                 @else
                                     <th
                                         aria-label="{{ trans_choice('wellcms-tables::table.columns.actions.label', $flatActionsCount) }}"
-                                        class="fi-ta-actions-header-cell w-1"
+                                        class="re-ta-actions-header-cell w-1"
                                     ></th>
                                 @endif
                             @endif
@@ -942,7 +942,7 @@
                             @foreach ($columns as $column)
                                 <x-wellcms-tables::cell
                                     @class([
-                                        'fi-table-individual-search-cell-' . str($column->getName())->camel()->kebab(),
+                                        're-table-individual-search-cell-' . str($column->getName())->camel()->kebab(),
                                         'min-w-48 px-3 py-2' => $isIndividuallySearchable = $column->isIndividuallySearchable(),
                                     ])
                                 >
@@ -1104,7 +1104,7 @@
                                                     :value="$recordKey"
                                                     x-model="selectedRecords"
                                                     :data-group="$recordGroupKey"
-                                                    class="fi-ta-record-checkbox"
+                                                    class="re-ta-record-checkbox"
                                                 />
                                             @endif
                                         </x-wellcms-tables::selection.cell>
@@ -1131,7 +1131,7 @@
                                             :attributes="
                                                 \WellCMS\Support\prepare_inherited_attributes($column->getExtraCellAttributeBag())
                                                     ->class([
-                                                        'fi-table-cell-' . str($column->getName())->camel()->kebab(),
+                                                        're-table-cell-' . str($column->getName())->camel()->kebab(),
                                                         match ($column->getVerticalAlignment()) {
                                                             VerticalAlignment::Start => 'align-top',
                                                             VerticalAlignment::Center => 'align-middle',
@@ -1172,7 +1172,7 @@
                                                     :value="$recordKey"
                                                     x-model="selectedRecords"
                                                     :data-group="$recordGroupKey"
-                                                    class="fi-ta-record-checkbox"
+                                                    class="re-ta-record-checkbox"
                                                 />
                                             @endif
                                         </x-wellcms-tables::selection.cell>
@@ -1269,7 +1269,7 @@
                 :extreme-links="$hasExtremePaginationLinks()"
                 :page-options="$getPaginationPageOptions()"
                 :paginator="$records"
-                class="fi-ta-pagination px-3 py-3 sm:px-6"
+                class="re-ta-pagination px-3 py-3 sm:px-6"
             />
         @endif
 
@@ -1277,7 +1277,7 @@
             <x-wellcms-tables::filters
                 :apply-action="$getFiltersApplyAction()"
                 :form="$getFiltersForm()"
-                class="fi-ta-filters-below-content p-4 sm:px-6"
+                class="re-ta-filters-below-content p-4 sm:px-6"
             />
         @endif
     </x-wellcms-tables::container>

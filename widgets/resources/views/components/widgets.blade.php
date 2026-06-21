@@ -13,7 +13,7 @@
     :lg="$columns['lg'] ?? ($columns ? (is_array($columns) ? null : $columns) : 2)"
     :xl="$columns['xl'] ?? null"
     :two-xl="$columns['2xl'] ?? null"
-    :attributes="\WellCMS\Support\prepare_inherited_attributes($attributes)->class('fi-wi gap-6')"
+    :attributes="\WellCMS\Support\prepare_inherited_attributes($attributes)->class('re-wi gap-6')"
 >
     @php
         $normalizeWidgetClass = function (string | WellCMS\Widgets\WidgetConfiguration $widget): string {

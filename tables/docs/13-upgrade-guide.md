@@ -45,7 +45,7 @@ rm config/tables.php
 
 #### `TABLES_FILESYSTEM_DRIVER` .env variable
 
-The `TABLES_FILESYSTEM_DRIVER` .env variable has been renamed to `FILAMENT_FILESYSTEM_DISK`. This is to make it more consistent with Laravel, as Laravel v9 introduced this change as well. Please ensure that you update your .env files accordingly, and don't forget production!
+The `TABLES_FILESYSTEM_DRIVER` .env variable has been renamed to `WELLCMS_FILESYSTEM_DISK`. This is to make it more consistent with Laravel, as Laravel v9 introduced this change as well. Please ensure that you update your .env files accordingly, and don't forget production!
 
 #### New `@wellcmsScripts` and `@wellcmsStyles` Blade directives
 

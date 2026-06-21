@@ -98,7 +98,7 @@
                     $attributes
                         ->merge($getExtraAttributes(), escape: false)
                         ->merge($getExtraAlpineAttributes(), escape: false)
-                        ->class(['fi-fo-date-time-picker'])
+                        ->class(['re-fo-date-time-picker'])
                 }}
             >
                 <input x-ref="maxDate" type="hidden" value="{{ $maxDate }}" />
@@ -144,7 +144,7 @@
                         x-model="displayText"
                         @if ($id = $getId()) id="{{ $id }}" @endif
                         @class([
-                            'fi-fo-date-time-picker-display-text-input w-full border-none bg-transparent px-3 py-1.5 text-base text-gray-950 outline-none transition duration-75 placeholder:text-gray-400 focus:ring-0 disabled:text-gray-500 disabled:[-webkit-text-fill-color:theme(colors.gray.500)] dark:text-white dark:placeholder:text-gray-500 dark:disabled:text-gray-400 dark:disabled:[-webkit-text-fill-color:theme(colors.gray.400)] sm:text-sm sm:leading-6',
+                            're-fo-date-time-picker-display-text-input w-full border-none bg-transparent px-3 py-1.5 text-base text-gray-950 outline-none transition duration-75 placeholder:text-gray-400 focus:ring-0 disabled:text-gray-500 disabled:[-webkit-text-fill-color:theme(colors.gray.500)] dark:text-white dark:placeholder:text-gray-500 dark:disabled:text-gray-400 dark:disabled:[-webkit-text-fill-color:theme(colors.gray.400)] sm:text-sm sm:leading-6',
                         ])
                     />
                 </button>
@@ -156,7 +156,7 @@
                     wire:ignore
                     wire:key="{{ $this->getId() }}.{{ $statePath }}.{{ $field::class }}.panel"
                     @class([
-                        'fi-fo-date-time-picker-panel absolute z-10 rounded-lg bg-white p-4 shadow-lg ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10',
+                        're-fo-date-time-picker-panel absolute z-10 rounded-lg bg-white p-4 shadow-lg ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10',
                     ])
                 >
                     <div class="grid gap-y-3">

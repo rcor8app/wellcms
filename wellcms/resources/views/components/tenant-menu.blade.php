@@ -34,7 +34,7 @@
     teleport
     :attributes="
         \WellCMS\Support\prepare_inherited_attributes($attributes)
-            ->class(['fi-tenant-menu'])
+            ->class(['re-tenant-menu'])
     "
 >
     <x-slot name="trigger">
@@ -53,7 +53,7 @@
                 x-tooltip.html="tooltip"
             @endif
             type="button"
-            class="fi-tenant-menu-trigger group flex w-full items-center justify-center gap-x-3 rounded-lg p-2 text-sm font-medium outline-none transition duration-75 hover:bg-gray-100 focus-visible:bg-gray-100 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"
+            class="re-tenant-menu-trigger group flex w-full items-center justify-center gap-x-3 rounded-lg p-2 text-sm font-medium outline-none transition duration-75 hover:bg-gray-100 focus-visible:bg-gray-100 dark:hover:bg-white/5 dark:focus-visible:bg-white/5"
         >
             <x-wellcms-panels::avatar.tenant
                 :tenant="$currentTenant"

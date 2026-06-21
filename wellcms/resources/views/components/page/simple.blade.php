@@ -3,7 +3,7 @@
     'subheading' => null,
 ])
 
-<div {{ $attributes->class(['fi-simple-page']) }}>
+<div {{ $attributes->class(['re-simple-page']) }}>
     {{ \WellCMS\Support\Facades\WellCMSView::renderHook(\WellCMS\View\PanelsRenderHook::SIMPLE_PAGE_START, scopes: $this->getRenderHookScopes()) }}
 
     <section class="grid auto-cols-fr gap-y-6">

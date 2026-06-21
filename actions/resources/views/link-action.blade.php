@@ -5,7 +5,7 @@
     dynamic-component="wellcms::link"
     :icon-position="$getIconPosition()"
     :size="$getSize()"
-    class="fi-ac-link-action"
+    class="re-ac-link-action"
 >
     {{ $getLabel() }}
 </x-wellcms-actions::action>

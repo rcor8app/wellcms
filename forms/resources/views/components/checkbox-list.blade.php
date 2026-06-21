@@ -158,7 +158,7 @@
                 \WellCMS\Support\prepare_inherited_attributes($attributes)
                     ->merge($getExtraAttributes(), escape: false)
                     ->class([
-                        'fi-fo-checkbox-list gap-4',
+                        're-fo-checkbox-list gap-4',
                         '-mt-4' => $gridDirection === 'column',
                     ])
             "
@@ -183,7 +183,7 @@
                     ])
                 >
                     <label
-                        class="fi-fo-checkbox-list-option-label flex gap-x-3"
+                        class="re-fo-checkbox-list-option-label flex gap-x-3"
                     >
                         <x-wellcms::input.checkbox
                             :valid="! $errors->has($statePath)"
@@ -202,7 +202,7 @@
 
                         <div class="grid text-sm leading-6">
                             <span
-                                class="fi-fo-checkbox-list-option-label overflow-hidden break-words font-medium text-gray-950 dark:text-white"
+                                class="re-fo-checkbox-list-option-label overflow-hidden break-words font-medium text-gray-950 dark:text-white"
                             >
                                 @if ($isHtmlAllowed())
                                     {!! $label !!}
@@ -213,7 +213,7 @@
 
                             @if ($hasDescription($value))
                                 <p
-                                    class="fi-fo-checkbox-list-option-description text-gray-500 dark:text-gray-400"
+                                    class="re-fo-checkbox-list-option-description text-gray-500 dark:text-gray-400"
                                 >
                                     {{ $getDescription($value) }}
                                 </p>
@@ -232,7 +232,7 @@
             <div
                 x-cloak
                 x-show="search && ! visibleCheckboxListOptions.length"
-                class="fi-fo-checkbox-list-no-search-results-message text-sm text-gray-500 dark:text-gray-400"
+                class="re-fo-checkbox-list-no-search-results-message text-sm text-gray-500 dark:text-gray-400"
             >
                 {{ $getNoSearchResultsMessage() }}
             </div>

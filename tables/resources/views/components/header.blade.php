@@ -13,7 +13,7 @@
 <div
     {{
         $attributes->class([
-            'fi-ta-header flex flex-col gap-3 p-4 sm:px-6',
+            're-ta-header flex flex-col gap-3 p-4 sm:px-6',
             'sm:flex-row sm:items-center' => $actionsPosition === HeaderActionsPosition::Adaptive,
         ])
     }}
@@ -22,7 +22,7 @@
         <div class="grid gap-y-1">
             @if ($heading)
                 <h3
-                    class="fi-ta-header-heading text-base font-semibold leading-6 text-gray-950 dark:text-white"
+                    class="re-ta-header-heading text-base font-semibold leading-6 text-gray-950 dark:text-white"
                 >
                     {{ $heading }}
                 </h3>
@@ -30,7 +30,7 @@
 
             @if ($description)
                 <p
-                    class="fi-ta-header-description text-sm text-gray-600 dark:text-gray-400"
+                    class="re-ta-header-description text-sm text-gray-600 dark:text-gray-400"
                 >
                     {{ $description }}
                 </p>

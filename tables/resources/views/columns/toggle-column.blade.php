@@ -17,7 +17,7 @@
             $attributes
                 ->merge($getExtraAttributes(), escape: false)
                 ->class([
-                    'fi-ta-toggle',
+                    're-ta-toggle',
                     'px-3 py-4' => ! $isInline(),
                 ])
         }}
@@ -80,18 +80,18 @@
                         \Illuminate\Support\Arr::toCssClasses([
                             match ($onColor) {
                                 'gray' => 'bg-gray-200 dark:bg-gray-700',
-                                default => 'fi-color-custom bg-custom-600',
+                                default => 're-color-custom bg-custom-600',
                             },
-                            is_string($onColor) ? "fi-color-{$onColor}" : null,
+                            is_string($onColor) ? "re-color-{$onColor}" : null,
                         ])
                     }}'
                     : '{{
                         \Illuminate\Support\Arr::toCssClasses([
                             match ($offColor) {
                                 'gray' => 'bg-gray-200 dark:bg-gray-700',
-                                default => 'fi-color-custom bg-custom-600',
+                                default => 're-color-custom bg-custom-600',
                             },
-                            is_string($offColor) ? "fi-color-{$offColor}" : null,
+                            is_string($offColor) ? "re-color-{$offColor}" : null,
                         ])
                     }}') +
                     (isLoading ? ' opacity-70 pointer-events-none' : '')
@@ -137,7 +137,7 @@
                         <x-wellcms::icon
                             :icon="$getOffIcon()"
                             @class([
-                                'fi-ta-toggle-off-icon h-3 w-3',
+                                're-ta-toggle-off-icon h-3 w-3',
                                 match ($offColor) {
                                     'gray' => 'text-gray-400 dark:text-gray-700',
                                     default => 'text-custom-600',
@@ -160,7 +160,7 @@
                             :icon="$getOnIcon()"
                             x-cloak="x-cloak"
                             @class([
-                                'fi-ta-toggle-on-icon h-3 w-3',
+                                're-ta-toggle-on-icon h-3 w-3',
                                 match ($onColor) {
                                     'gray' => 'text-gray-400 dark:text-gray-700',
                                     default => 'text-custom-600',

@@ -2,7 +2,7 @@
     $user = wellcms()->auth()->user();
 @endphp
 
-<x-wellcms-widgets::widget class="fi-account-widget">
+<x-wellcms-widgets::widget class="re-account-widget">
     <x-wellcms::section>
         <div class="flex items-center gap-x-3">
             <x-wellcms-panels::avatar.user size="lg" :user="$user" />

@@ -19,7 +19,7 @@
     teleport
     :attributes="
         \WellCMS\Support\prepare_inherited_attributes($attributes)
-            ->class(['fi-user-menu'])
+            ->class(['re-user-menu'])
     "
 >
     <x-slot name="trigger">

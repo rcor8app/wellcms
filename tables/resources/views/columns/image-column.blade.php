@@ -57,7 +57,7 @@
         $attributes
             ->merge($getExtraAttributes(), escape: false)
             ->class([
-                'fi-ta-image',
+                're-ta-image',
                 'px-3 py-4' => ! $isInline(),
             ])
     }}

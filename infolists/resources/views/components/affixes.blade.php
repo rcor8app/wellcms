@@ -18,7 +18,7 @@
 @endphp
 
 <div
-    {{ $attributes->class(['fi-in-affixes flex']) }}
+    {{ $attributes->class(['re-in-affixes flex']) }}
 >
     @if (count($prefixActions))
         <div

@@ -4,7 +4,7 @@
     :badge-color="$getBadgeColor()"
     dynamic-component="wellcms::dropdown.list.item"
     :icon="$getGroupedIcon()"
-    class="fi-ac-grouped-action"
+    class="re-ac-grouped-action"
 >
     {{ $getLabel() }}
 </x-wellcms-actions::action>

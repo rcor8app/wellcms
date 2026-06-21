@@ -2,7 +2,7 @@
     {{
         $attributes
             ->merge($getExtraAttributes(), escape: false)
-            ->class(['fi-ta-range-summary grid gap-y-1 px-3 py-4'])
+            ->class(['re-ta-range-summary grid gap-y-1 px-3 py-4'])
     }}
 >
     @php

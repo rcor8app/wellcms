@@ -11,7 +11,7 @@
     shift
     :width="$width"
     wire:key="{{ $this->getId() }}.table.column-toggle"
-    {{ $attributes->class(['fi-ta-col-toggle']) }}
+    {{ $attributes->class(['re-ta-col-toggle']) }}
 >
     <x-slot name="trigger">
         {{ $triggerAction }}

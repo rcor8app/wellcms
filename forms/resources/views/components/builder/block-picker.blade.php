@@ -10,7 +10,7 @@
 
 <x-wellcms::dropdown
     :width="$width"
-    {{ $attributes->class(['fi-fo-builder-block-picker']) }}
+    {{ $attributes->class(['re-fo-builder-block-picker']) }}
 >
     <x-slot name="trigger">
         {{ $trigger }}

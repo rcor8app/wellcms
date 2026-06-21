@@ -10,7 +10,7 @@
     'pageClass',
 ])
 
-<div class="fi-resource-relation-managers flex flex-col gap-y-6">
+<div class="re-resource-relation-managers flex flex-col gap-y-6">
     @php
         $activeManager = strval($activeManager);
         $normalizeRelationManagerClass = function (string | WellCMS\Resources\RelationManagers\RelationManagerConfiguration $manager): string {

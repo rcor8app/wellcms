@@ -101,11 +101,11 @@
     @endif
     x-trap.noscroll{{ $autofocus ? '' : '.noautofocus' }}="isOpen"
     x-bind:class="{
-        'fi-modal-open': isOpen,
+        're-modal-open': isOpen,
     }"
     @class([
-        'fi-modal',
-        'fi-width-screen' => $width === MaxWidth::Screen,
+        're-modal',
+        're-width-screen' => $width === MaxWidth::Screen,
         $displayClasses,
     ])
 >
@@ -114,7 +114,7 @@
             @if (! $trigger->attributes->get('disabled'))
                 x-on:click="open"
             @endif
-            {{ $trigger->attributes->class(['fi-modal-trigger flex cursor-pointer']) }}
+            {{ $trigger->attributes->class(['re-modal-trigger flex cursor-pointer']) }}
         >
             {{ $trigger }}
         </div>
@@ -126,7 +126,7 @@
             x-show="isOpen"
             x-transition.duration.300ms.opacity
             @class([
-                'fi-modal-close-overlay fixed inset-0 z-40 bg-gray-950/50 dark:bg-gray-950/75',
+                're-modal-close-overlay fixed inset-0 z-40 bg-gray-950/50 dark:bg-gray-950/75',
             ])
         ></div>
 
@@ -185,8 +185,8 @@
                     @endif
                     {{
                         ($extraModalWindowAttributeBag ?? new \Illuminate\View\ComponentAttributeBag)->class([
-                            'fi-modal-window pointer-events-auto relative row-start-2 flex w-full cursor-default flex-col bg-white shadow-xl ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10',
-                            'fi-modal-slide-over-window ms-auto overflow-y-auto' => $slideOver,
+                            're-modal-window pointer-events-auto relative row-start-2 flex w-full cursor-default flex-col bg-white shadow-xl ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10',
+                            're-modal-slide-over-window ms-auto overflow-y-auto' => $slideOver,
                             // Using an arbitrary value instead of the h-dvh class that was added in Tailwind CSS v3.4.0
                             // to ensure compatibility with custom themes that may use an older version of Tailwind CSS.
                             'h-[100dvh]' => $slideOver || ($width === MaxWidth::Screen),
@@ -226,9 +226,9 @@
                                 wire:key="{{ isset($this) ? "{$this->getId()}." : '' }}modal.{{ $id }}.header"
                             @endif
                             @class([
-                                'fi-modal-header flex px-6 pt-6',
+                                're-modal-header flex px-6 pt-6',
                                 'pb-6' => (! $hasSlot) && (! $hasFooter),
-                                'fi-sticky sticky top-0 z-10 border-b border-gray-200 bg-white pb-6 dark:border-white/10 dark:bg-gray-900' => $stickyHeader,
+                                're-sticky sticky top-0 z-10 border-b border-gray-200 bg-white pb-6 dark:border-white/10 dark:bg-gray-900' => $stickyHeader,
                                 'rounded-t-xl' => $stickyHeader && ! ($slideOver || ($width === MaxWidth::Screen)),
                                 match ($alignment) {
                                     Alignment::Start, Alignment::Left => 'gap-x-5',
@@ -254,7 +254,7 @@
                                         :label="__('wellcms::components/modal.actions.close.label')"
                                         tabindex="-1"
                                         :x-on:click="$closeEventHandler"
-                                        class="fi-modal-close-btn"
+                                        class="re-modal-close-btn"
                                     />
                                 </div>
                             @endif
@@ -273,9 +273,9 @@
                                                 'rounded-full',
                                                 match ($iconColor) {
                                                     'gray' => 'bg-gray-100 dark:bg-gray-500/20',
-                                                    default => 'fi-color-custom bg-custom-100 dark:bg-custom-500/20',
+                                                    default => 're-color-custom bg-custom-100 dark:bg-custom-500/20',
                                                 },
-                                                is_string($iconColor) ? "fi-color-{$iconColor}" : null,
+                                                is_string($iconColor) ? "re-color-{$iconColor}" : null,
                                                 match ($alignment) {
                                                     Alignment::Start, Alignment::Left => 'p-2',
                                                     Alignment::Center => 'p-3',
@@ -294,7 +294,7 @@
                                                 :alias="$iconAlias"
                                                 :icon="$icon"
                                                 @class([
-                                                    'fi-modal-icon h-6 w-6',
+                                                    're-modal-icon h-6 w-6',
                                                     match ($iconColor) {
                                                         'gray' => 'text-gray-500 dark:text-gray-400',
                                                         default => 'text-custom-600 dark:text-custom-400',
@@ -337,7 +337,7 @@
                                 wire:key="{{ isset($this) ? "{$this->getId()}." : '' }}modal.{{ $id }}.content"
                             @endif
                             @class([
-                                'fi-modal-content flex flex-col gap-y-4 py-6',
+                                're-modal-content flex flex-col gap-y-4 py-6',
                                 'flex-1' => ($width === MaxWidth::Screen) || $slideOver,
                                 'pe-6 ps-[5.25rem]' => $hasIcon && ($alignment === Alignment::Start) && (! $stickyHeader),
                                 'px-6' => ! ($hasIcon && ($alignment === Alignment::Start) && (! $stickyHeader)),
@@ -353,10 +353,10 @@
                                 wire:key="{{ isset($this) ? "{$this->getId()}." : '' }}modal.{{ $id }}.footer"
                             @endif
                             @class([
-                                'fi-modal-footer w-full',
+                                're-modal-footer w-full',
                                 'pe-6 ps-[5.25rem]' => $hasIcon && ($alignment === Alignment::Start) && ($footerActionsAlignment !== Alignment::Center) && (! $stickyFooter),
                                 'px-6' => ! ($hasIcon && ($alignment === Alignment::Start) && ($footerActionsAlignment !== Alignment::Center) && (! $stickyFooter)),
-                                'fi-sticky sticky bottom-0 border-t border-gray-200 bg-white py-5 dark:border-white/10 dark:bg-gray-900' => $stickyFooter,
+                                're-sticky sticky bottom-0 border-t border-gray-200 bg-white py-5 dark:border-white/10 dark:bg-gray-900' => $stickyFooter,
                                 'rounded-b-xl' => $stickyFooter && ! ($slideOver || ($width === MaxWidth::Screen)),
                                 'pb-6' => ! $stickyFooter,
                                 'mt-6' => (! $stickyFooter) && (! $hasSlot),
@@ -368,7 +368,7 @@
                             @else
                                 <div
                                     @class([
-                                        'fi-modal-footer-actions gap-3',
+                                        're-modal-footer-actions gap-3',
                                         match ($footerActionsAlignment) {
                                             Alignment::Start, Alignment::Left => 'flex flex-wrap items-center',
                                             Alignment::Center => 'flex flex-col-reverse sm:grid sm:grid-cols-[repeat(auto-fit,minmax(0,1fr))]',

@@ -12,7 +12,7 @@
         :two-xl="$getColumns('2xl')"
         :attributes="
             \WellCMS\Support\prepare_inherited_attributes($getExtraAttributeBag())
-                ->class(['fi-fo-component-ctn gap-6'])
+                ->class(['re-fo-component-ctn gap-6'])
         "
     >
         @foreach ($getComponents() as $infolistComponent)

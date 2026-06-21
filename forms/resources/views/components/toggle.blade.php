@@ -22,18 +22,18 @@
                         \Illuminate\Support\Arr::toCssClasses([
                             match ($onColor) {
                                 'gray' => 'bg-gray-200 dark:bg-gray-700',
-                                default => 'fi-color-custom bg-custom-600',
+                                default => 're-color-custom bg-custom-600',
                             },
-                            is_string($onColor) ? "fi-color-{$onColor}" : null,
+                            is_string($onColor) ? "re-color-{$onColor}" : null,
                         ])
                     }}'
                     : '{{
                         \Illuminate\Support\Arr::toCssClasses([
                             match ($offColor) {
                                 'gray' => 'bg-gray-200 dark:bg-gray-700',
-                                default => 'fi-color-custom bg-custom-600',
+                                default => 're-color-custom bg-custom-600',
                             },
-                            is_string($offColor) ? "fi-color-{$offColor}" : null,
+                            is_string($offColor) ? "re-color-{$offColor}" : null,
                         ])
                     }}'
             "
@@ -68,7 +68,7 @@
                     ], escape: false)
                     ->merge($getExtraAttributes(), escape: false)
                     ->merge($getExtraAlpineAttributes(), escape: false)
-                    ->class(['fi-fo-toggle relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent outline-none transition-colors duration-200 ease-in-out focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-70 dark:focus-visible:ring-primary-500 dark:focus-visible:ring-offset-gray-900'])
+                    ->class(['re-fo-toggle relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent outline-none transition-colors duration-200 ease-in-out focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-70 dark:focus-visible:ring-primary-500 dark:focus-visible:ring-offset-gray-900'])
             }}
         >
             <span
@@ -90,7 +90,7 @@
                         <x-wellcms::icon
                             :icon="$getOffIcon()"
                             @class([
-                                'fi-fo-toggle-off-icon h-3 w-3',
+                                're-fo-toggle-off-icon h-3 w-3',
                                 match ($offColor) {
                                     'gray' => 'text-gray-400 dark:text-gray-700',
                                     default => 'text-custom-600',
@@ -113,7 +113,7 @@
                             :icon="$getOnIcon()"
                             x-cloak="x-cloak"
                             @class([
-                                'fi-fo-toggle-on-icon h-3 w-3',
+                                're-fo-toggle-on-icon h-3 w-3',
                                 match ($onColor) {
                                     'gray' => 'text-gray-400 dark:text-gray-700',
                                     default => 'text-custom-600',

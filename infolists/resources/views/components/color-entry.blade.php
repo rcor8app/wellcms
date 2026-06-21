@@ -14,7 +14,7 @@
             $attributes
                 ->merge($getExtraAttributes(), escape: false)
                 ->class([
-                    'fi-in-color flex flex-wrap gap-1.5',
+                    're-in-color flex flex-wrap gap-1.5',
                 ])
         }}
     >
@@ -39,7 +39,7 @@
                         "
                     @endif
                     @class([
-                        'fi-in-color-item h-6 w-6 rounded-md',
+                        're-in-color-item h-6 w-6 rounded-md',
                         'cursor-pointer' => $itemIsCopyable,
                     ])
                     @style([

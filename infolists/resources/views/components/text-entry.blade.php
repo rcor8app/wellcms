@@ -59,7 +59,7 @@
         {{
             $attributes
                 ->merge($getExtraAttributes(), escape: false)
-                ->class(['fi-in-text w-full'])
+                ->class(['re-in-text w-full'])
         }}
     >
         @if ($arrayState)
@@ -119,7 +119,7 @@
                                 $weight = $getWeight($state);
 
                                 $proseClasses = \Illuminate\Support\Arr::toCssClasses([
-                                    'fi-in-text-item-prose prose max-w-none dark:prose-invert [&>*:first-child]:mt-0 [&>*:last-child]:mb-0',
+                                    're-in-text-item-prose prose max-w-none dark:prose-invert [&>*:first-child]:mt-0 [&>*:last-child]:mb-0',
                                     'pt-2' => ! $isLabelHidden(),
                                     match ($size) {
                                         TextEntrySize::ExtraSmall, 'xs' => 'prose-xs',
@@ -131,7 +131,7 @@
                                 ]);
 
                                 $iconClasses = \Illuminate\Support\Arr::toCssClasses([
-                                    'fi-in-text-item-icon h-5 w-5 shrink-0',
+                                    're-in-text-item-icon h-5 w-5 shrink-0',
                                     match ($iconColor) {
                                         'gray', null => 'text-gray-400 dark:text-gray-500',
                                         default => 'text-custom-500',
@@ -192,13 +192,13 @@
                                 @else
                                     <div
                                         @class([
-                                            'fi-in-text-item inline-flex items-center gap-1.5',
+                                            're-in-text-item inline-flex items-center gap-1.5',
                                             'group/item' => $url,
                                             match ($color) {
                                                 null, 'gray' => null,
-                                                default => 'fi-color-custom',
+                                                default => 're-color-custom',
                                             },
-                                            is_string($color) ? "fi-color-{$color}" : null,
+                                            is_string($color) ? "re-color-{$color}" : null,
                                         ])
                                     >
                                         @if ($icon && in_array($iconPosition, [IconPosition::Before, 'before']))

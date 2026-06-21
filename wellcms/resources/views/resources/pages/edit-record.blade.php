@@ -1,8 +1,8 @@
 <x-wellcms-panels::page
     @class([
-        'fi-resource-edit-record-page',
-        'fi-resource-' . str_replace('/', '-', $this->getResource()::getSlug()),
-        'fi-resource-record-' . $record->getKey(),
+        're-resource-edit-record-page',
+        're-resource-' . str_replace('/', '-', $this->getResource()::getSlug()),
+        're-resource-record-' . $record->getKey(),
     ])
 >
     @capture($form)

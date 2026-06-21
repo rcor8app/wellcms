@@ -38,7 +38,7 @@
         :valid="! $errors->has($statePath)"
         :attributes="
             \WellCMS\Support\prepare_inherited_attributes($getExtraAttributeBag())
-                ->class('fi-fo-color-picker')
+                ->class('re-fo-color-picker')
         "
     >
         <div
@@ -82,7 +82,7 @@
             />
 
             <div
-                class="fi-fo-color-picker-preview my-auto me-3 h-5 w-5 shrink-0 select-none rounded-full"
+                class="re-fo-color-picker-preview my-auto me-3 h-5 w-5 shrink-0 select-none rounded-full"
                 x-on:click="togglePanelVisibility()"
                 x-bind:class="{
                     'ring-1 ring-inset ring-gray-200 dark:ring-white/10': ! state,
@@ -96,7 +96,7 @@
                 x-cloak
                 x-float.placement.bottom-start.offset.flip.shift="{ offset: 8 }"
                 x-ref="panel"
-                class="fi-fo-color-picker-panel absolute z-10 hidden rounded-lg shadow-lg"
+                class="re-fo-color-picker-panel absolute z-10 hidden rounded-lg shadow-lg"
             >
                 @php
                     $tag = match ($getFormat()) {

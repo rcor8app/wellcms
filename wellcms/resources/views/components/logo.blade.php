@@ -6,7 +6,7 @@
     $hasDarkModeBrandLogo = filled($darkModeBrandLogo);
 
     $getLogoClasses = fn (bool $isDarkMode): string => \Illuminate\Support\Arr::toCssClasses([
-        'fi-logo',
+        're-logo',
         'flex' => ! $hasDarkModeBrandLogo,
         'flex dark:hidden' => $hasDarkModeBrandLogo && (! $isDarkMode),
         'hidden dark:flex' => $hasDarkModeBrandLogo && $isDarkMode,

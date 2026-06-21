@@ -2,7 +2,7 @@
     {{
         $attributes
             ->merge($getExtraAttributes(), escape: false)
-            ->class(['fi-ta-icon-count-summary grid gap-y-1.5 px-3 py-4'])
+            ->class(['re-ta-icon-count-summary grid gap-y-1.5 px-3 py-4'])
     }}
 >
     @if (filled($label = $getLabel()))
@@ -30,12 +30,12 @@
                             <x-wellcms::icon
                                 :icon="$icon"
                                 @class([
-                                    'fi-ta-icon-count-summary-icon h-6 w-6',
+                                    're-ta-icon-count-summary-icon h-6 w-6',
                                     match ($color) {
                                         'gray' => 'text-gray-400 dark:text-gray-500',
-                                        default => 'fi-color-custom text-custom-500 dark:text-custom-400',
+                                        default => 're-color-custom text-custom-500 dark:text-custom-400',
                                     },
-                                    is_string($color) ? 'fi-color-' . $color : null,
+                                    is_string($color) ? 're-color-' . $color : null,
                                 ])
                                 @style([
                                     \WellCMS\Support\get_color_css_variables(

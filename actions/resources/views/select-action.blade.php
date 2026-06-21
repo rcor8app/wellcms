@@ -3,7 +3,7 @@
     $isDisabled = $isDisabled();
 @endphp
 
-<div class="fi-ac-select-action">
+<div class="re-ac-select-action">
     <label for="{{ $id }}" class="sr-only">
         {{ $getLabel() }}
     </label>

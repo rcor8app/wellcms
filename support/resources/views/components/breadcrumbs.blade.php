@@ -3,14 +3,14 @@
 ])
 
 @php
-    $iconClasses = 'fi-breadcrumbs-item-separator flex h-5 w-5 text-gray-400 dark:text-gray-500';
-    $itemLabelClasses = 'fi-breadcrumbs-item-label text-sm font-medium text-gray-500 dark:text-gray-400';
+    $iconClasses = 're-breadcrumbs-item-separator flex h-5 w-5 text-gray-400 dark:text-gray-500';
+    $itemLabelClasses = 're-breadcrumbs-item-label text-sm font-medium text-gray-500 dark:text-gray-400';
 @endphp
 
-<nav {{ $attributes->class(['fi-breadcrumbs']) }}>
-    <ol class="fi-breadcrumbs-list flex flex-wrap items-center gap-x-2">
+<nav {{ $attributes->class(['re-breadcrumbs']) }}>
+    <ol class="re-breadcrumbs-list flex flex-wrap items-center gap-x-2">
         @foreach ($breadcrumbs as $url => $label)
-            <li class="fi-breadcrumbs-item flex items-center gap-x-2">
+            <li class="re-breadcrumbs-item flex items-center gap-x-2">
                 @if (! $loop->first)
                     <x-wellcms::icon
                         alias="breadcrumbs.separator"

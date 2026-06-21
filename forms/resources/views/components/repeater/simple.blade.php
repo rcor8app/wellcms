@@ -27,7 +27,7 @@
         {{
             $attributes
                 ->merge($getExtraAttributes(), escape: false)
-                ->class(['fi-fo-simple-repeater grid gap-y-4'])
+                ->class(['re-fo-simple-repeater grid gap-y-4'])
         }}
     >
         @if (count($containers))
@@ -64,7 +64,7 @@
                         <li
                             wire:key="{{ $this->getId() }}.{{ $item->getStatePath() }}.{{ $field::class }}.item"
                             x-sortable-item="{{ $uuid }}"
-                            class="fi-fo-repeater-item simple flex justify-start gap-x-3"
+                            class="re-fo-repeater-item simple flex justify-start gap-x-3"
                         >
                             <div class="flex-1">
                                 {{ $item }}

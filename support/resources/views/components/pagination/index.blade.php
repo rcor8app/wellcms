@@ -17,8 +17,8 @@
     role="navigation"
     {{
         $attributes->class([
-            'fi-pagination grid grid-cols-[1fr_auto_1fr] items-center gap-x-3',
-            'fi-simple' => $isSimple,
+            're-pagination grid grid-cols-[1fr_auto_1fr] items-center gap-x-3',
+            're-simple' => $isSimple,
         ])
     }}
 >
@@ -36,7 +36,7 @@
             rel="prev"
             :wire:click="$wireClickAction"
             :wire:key="$this->getId() . '.pagination.previous'"
-            class="fi-pagination-previous-btn justify-self-start"
+            class="re-pagination-previous-btn justify-self-start"
         >
             {{ __('wellcms::components/pagination.actions.previous.label') }}
         </x-wellcms::button>
@@ -44,7 +44,7 @@
 
     @if (! $isSimple)
         <span
-            class="fi-pagination-overview text-sm font-medium text-gray-700 dark:text-gray-200"
+            class="re-pagination-overview text-sm font-medium text-gray-700 dark:text-gray-200"
         >
             {{
                 trans_choice(
@@ -62,7 +62,7 @@
 
     @if (count($pageOptions) > 1)
         <div class="col-start-2 justify-self-center">
-            <label class="fi-pagination-records-per-page-select fi-compact">
+            <label class="re-pagination-records-per-page-select re-compact">
                 <x-wellcms::input.wrapper>
                     <x-wellcms::input.select
                         :wire:model.live="$currentPageOptionProperty"
@@ -80,7 +80,7 @@
                 </span>
             </label>
 
-            <label class="fi-pagination-records-per-page-select">
+            <label class="re-pagination-records-per-page-select">
                 <x-wellcms::input.wrapper
                     :prefix="__('wellcms::components/pagination.fields.records_per_page.label')"
                 >
@@ -112,7 +112,7 @@
             rel="next"
             :wire:click="$wireClickAction"
             :wire:key="$this->getId() . '.pagination.next'"
-            class="fi-pagination-next-btn col-start-3 justify-self-end"
+            class="re-pagination-next-btn col-start-3 justify-self-end"
         >
             {{ __('wellcms::components/pagination.actions.next.label') }}
         </x-wellcms::button>
@@ -120,7 +120,7 @@
 
     @if ((! $isSimple) && $paginator->hasPages())
         <ol
-            class="fi-pagination-items justify-self-end rounded-lg bg-white shadow-sm ring-1 ring-gray-950/10 dark:bg-white/5 dark:ring-white/20"
+            class="re-pagination-items justify-self-end rounded-lg bg-white shadow-sm ring-1 ring-gray-950/10 dark:bg-white/5 dark:ring-white/20"
         >
             @if (! $paginator->onFirstPage())
                 @if ($extremeLinks)

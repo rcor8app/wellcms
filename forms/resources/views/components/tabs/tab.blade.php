@@ -3,7 +3,7 @@
     $isContained = $getContainer()->getParentComponent()->isContained();
 
     $activeTabClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-active',
+        're-active',
         'p-6' => $isContained,
         'mt-6' => ! $isContained,
     ]);
@@ -27,7 +27,7 @@
                 'wire:key' => "{$this->getId()}.{$getStatePath()}." . \WellCMS\Forms\Components\Tabs\Tab::class . ".tabs.{$id}",
             ], escape: false)
             ->merge($getExtraAttributes(), escape: false)
-            ->class(['fi-fo-tabs-tab outline-none'])
+            ->class(['re-fo-tabs-tab outline-none'])
     }}
 >
     {{ $getChildComponentContainer() }}

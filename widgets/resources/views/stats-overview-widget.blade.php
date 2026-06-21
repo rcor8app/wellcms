@@ -6,12 +6,12 @@
     $hasDescription = filled($description);
 @endphp
 
-<x-wellcms-widgets::widget class="fi-wi-stats-overview grid gap-y-4">
+<x-wellcms-widgets::widget class="re-wi-stats-overview grid gap-y-4">
     @if ($hasHeading || $hasDescription)
-        <div class="fi-wi-stats-overview-header grid gap-y-1">
+        <div class="re-wi-stats-overview-header grid gap-y-1">
             @if ($hasHeading)
                 <h3
-                    class="fi-wi-stats-overview-header-heading col-span-full text-base font-semibold leading-6 text-gray-950 dark:text-white"
+                    class="re-wi-stats-overview-header-heading col-span-full text-base font-semibold leading-6 text-gray-950 dark:text-white"
                 >
                     {{ $heading }}
                 </h3>
@@ -19,7 +19,7 @@
 
             @if ($hasDescription)
                 <p
-                    class="fi-wi-stats-overview-header-description overflow-hidden break-words text-sm text-gray-500 dark:text-gray-400"
+                    class="re-wi-stats-overview-header-description overflow-hidden break-words text-sm text-gray-500 dark:text-gray-400"
                 >
                     {{ $description }}
                 </p>
@@ -32,7 +32,7 @@
             wire:poll.{{ $pollingInterval }}
         @endif
         @class([
-            'fi-wi-stats-overview-stats-ctn grid gap-6',
+            're-wi-stats-overview-stats-ctn grid gap-6',
             'md:grid-cols-1' => $columns === 1,
             'md:grid-cols-2' => $columns === 2,
             'md:grid-cols-3' => $columns === 3,

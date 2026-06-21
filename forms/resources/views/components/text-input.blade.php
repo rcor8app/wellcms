@@ -68,7 +68,7 @@
         :x-data="$xData"
         :attributes="
             \WellCMS\Support\prepare_inherited_attributes($getExtraAttributeBag())
-                ->class(['fi-fo-text-input overflow-hidden'])
+                ->class(['re-fo-text-input overflow-hidden'])
         "
     >
         <x-wellcms::input

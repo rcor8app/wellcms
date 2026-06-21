@@ -6,7 +6,7 @@
     wire:ignore
     :attributes="
         \WellCMS\Support\prepare_inherited_attributes($attributes)
-            ->class(['fi-page-sub-navigation-select md:hidden'])
+            ->class(['re-page-sub-navigation-select md:hidden'])
     "
 >
     <x-wellcms::input.select
