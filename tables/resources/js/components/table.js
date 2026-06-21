@@ -84,7 +84,7 @@ export default function table() {
             const keys = []
 
             for (let checkbox of this.$root?.getElementsByClassName(
-                'fi-ta-record-checkbox',
+                're-ta-record-checkbox',
             ) ?? []) {
                 if (checkbox.dataset.group !== group) {
                     continue
@@ -100,7 +100,7 @@ export default function table() {
             const keys = []
 
             for (let checkbox of this.$root?.getElementsByClassName(
-                'fi-ta-record-checkbox',
+                're-ta-record-checkbox',
             ) ?? []) {
                 keys.push(checkbox.value)
             }
@@ -200,7 +200,7 @@ export default function table() {
             if (event.shiftKey) {
                 let checkboxes = Array.from(
                     this.$root?.getElementsByClassName(
-                        'fi-ta-record-checkbox',
+                        're-ta-record-checkbox',
                     ) ?? [],
                 )
 

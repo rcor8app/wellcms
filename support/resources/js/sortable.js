@@ -16,7 +16,7 @@ export default (Alpine) => {
             handle: '[x-sortable-handle]',
             dataIdAttr: 'x-sortable-item',
             animation: animation,
-            ghostClass: 'fi-sortable-ghost',
+            ghostClass: 're-sortable-ghost',
         })
     })
 }
