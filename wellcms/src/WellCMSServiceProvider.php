@@ -39,7 +39,7 @@ class WellCMSServiceProvider extends PackageServiceProvider
             ->hasCommands($this->getCommands())
             ->hasRoutes('web')
             ->hasTranslations()
-            ->hasViews();
+            ->hasViews('wellcms');
     }
 
     public function packageRegistered(): void
