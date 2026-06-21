@@ -43,6 +43,8 @@ abstract class Page extends BasePage
 
     protected static bool $shouldRegisterNavigation = true;
 
+    protected static ?string $module = null;
+
     public function getLayout(): string
     {
         return static::$layout ?? 'wellcms-panels::components.layout.index';
@@ -281,8 +283,17 @@ abstract class Page extends BasePage
         return [];
     }
 
+    public static function getModule(): ?string
+    {
+        return static::$module;
+    }
+
     public static function shouldRegisterNavigation(): bool
     {
+        if (static::getModule() !== null && !\WellCMS\Support\ModuleManager::isModuleActive(static::getModule())) {
+            return false;
+        }
+
         return static::$shouldRegisterNavigation;
     }
 

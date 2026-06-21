@@ -95,6 +95,8 @@ abstract class Resource
 
     protected static ?string $slug = null;
 
+    protected static ?string $module = null;
+
     protected static bool $isScopedToTenant = true;
 
     protected static ?string $tenantOwnershipRelationshipName = null;
@@ -860,8 +862,17 @@ abstract class Resource
         return static::getUrl();
     }
 
+    public static function getModule(): ?string
+    {
+        return static::$module;
+    }
+
     public static function shouldRegisterNavigation(): bool
     {
+        if (static::getModule() !== null && !\WellCMS\Support\ModuleManager::isModuleActive(static::getModule())) {
+            return false;
+        }
+
         return static::$shouldRegisterNavigation;
     }
 
