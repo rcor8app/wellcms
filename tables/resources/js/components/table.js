@@ -184,7 +184,7 @@ export default function table() {
             this.$root?.addEventListener(
                 'click',
                 (event) =>
-                    event.target?.matches('.fi-ta-record-checkbox') &&
+                    event.target?.matches('.re-ta-record-checkbox') &&
                     this.handleCheckboxClick(event, event.target),
                 { signal },
             )
